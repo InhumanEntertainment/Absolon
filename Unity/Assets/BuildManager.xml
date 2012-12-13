@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<BuildManager xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Current>1</Current>
+  <Builds>
+    <Build>
+      <Name>DNA 2</Name>
+      <Version>0.1</Version>
+      <BundleId>com.inhuman.dna2</BundleId>
+      <Path>Build/DNA 2/</Path>
+      <Target>StandaloneWindows</Target>
+      <Options>AutoRunPlayer ShowBuiltPlayer</Options>
+      <Script />
+      <ScriptCommand />
+      <Aspect>iPhone</Aspect>
+      <Icon>6546894ef69e8cb4e8a04bb3d5476c44</Icon>
+      <Splash>2a2a8591482a58b4b931ada83041fd1a</Splash>
+    </Build>
+    <Build>
+      <Name>DNA 2</Name>
+      <Version>0.1</Version>
+      <BundleId>com.inhuman.dna2hd</BundleId>
+      <Path>Build/DNA 2 HD/</Path>
+      <Target>StandaloneWindows</Target>
+      <Options>AutoRunPlayer ShowBuiltPlayer</Options>
+      <Script />
+      <ScriptCommand />
+      <Aspect>iPad</Aspect>
+      <Icon>6546894ef69e8cb4e8a04bb3d5476c44</Icon>
+      <Splash>2a2a8591482a58b4b931ada83041fd1a</Splash>
+    </Build>
+  </Builds>
+</BuildManager>

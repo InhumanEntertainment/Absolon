@@ -4,26 +4,22 @@ using System.Collections;
 public class Projectile : MonoBehaviour
 {
     //=======================================================================================================================================================/
-    void Start()
+	void OnBecameInvisible() 
+	{
+		Destroy (this.gameObject);
+	}
+	
+	//=======================================================================================================================================================/
+    void OnTriggerEnter2D(Collider2D collider)
     {
-
-    }
-
-    //=======================================================================================================================================================/
-    void Update()
-    {
-
-    }
-
-    //=======================================================================================================================================================/
-    void OnTriggerEnter(Collider collider)
-    {
-        // Play Effect //
+		// Play Effect //
         if (collider.tag == "Enemy")
         {
-            Destroy(collider.gameObject);
+			print (collider.name);
+			Destroy(collider.gameObject);
+			Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
+        
     }
 
 }

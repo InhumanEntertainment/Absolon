@@ -12,7 +12,7 @@ public class Pickup : MonoBehaviour
 	}
 
     //============================================================================================================================================//
-    void OnTriggerEnter(Collider collider)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         // Finish Level //
         if (collider.tag == "Player")
@@ -25,5 +25,4 @@ public class Pickup : MonoBehaviour
             player.Weapon = (Weapon)Instantiate(Weapon);
         }
     }
-
 }

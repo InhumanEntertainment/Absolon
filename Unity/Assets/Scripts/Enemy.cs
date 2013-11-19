@@ -9,8 +9,14 @@ public class Enemy : MonoBehaviour
     //=======================================================================================================================================================/
     void Start()
     {
-        rigidbody.velocity = new Vector3(0, -YSpeed, 0);
+		rigidbody2D.velocity = new Vector3(0, -YSpeed, 0);
     }
+
+	//=======================================================================================================================================================/
+	void OnBecameInvisible() 
+	{
+		Destroy (this.gameObject);
+	}
 
     //=======================================================================================================================================================/
     void FixedUpdate()
@@ -20,16 +26,16 @@ public class Enemy : MonoBehaviour
         vel.Normalize();
         vel = new Vector2(vel.x * XSpeed, 0f);
 
-        rigidbody.velocity = new Vector2(rigidbody.velocity.x * 0.98f, rigidbody.velocity.y) + vel;
+		rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x * 0.98f, rigidbody2D.velocity.y) + vel;
 
-        var r = (float)Mathf.Atan2(rigidbody.velocity.y, rigidbody.velocity.x);
+		var r = (float)Mathf.Atan2(rigidbody2D.velocity.y, rigidbody2D.velocity.x);
 
-        rigidbody.rotation = Quaternion.AngleAxis(r * Mathf.Rad2Deg, Vector3.forward);
+		transform.rotation = Quaternion.AngleAxis(r * Mathf.Rad2Deg, Vector3.forward);
         
 	}
 
     //=======================================================================================================================================================/
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         // Play Effect //
 

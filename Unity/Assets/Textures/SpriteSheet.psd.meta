@@ -122,5 +122,32 @@ TextureImporter:
         height: 20
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: Collect1
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 80
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Blue
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 70
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Charge
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 34
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 

@@ -1,14 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player.cs">
     <Files>
-      <File FileName="Assets\Scripts\Pickup.cs" Line="23" Column="1" />
-      <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Collect.cs" Line="28" Column="94" />
+      <File FileName="Assets\Scripts\Pickup.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player.cs" Line="23" Column="45" />
       <File FileName="Assets\Editor\BuildManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy.cs" Line="19" Column="3" />
+      <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\WeaponSpread.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Weapon.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Projectile.cs" Line="10" Column="3" />
+      <File FileName="Assets\Scripts\Projectile.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Collect.cs" Line="33" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

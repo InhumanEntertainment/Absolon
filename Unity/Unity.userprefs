@@ -1,16 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu.cs">
     <Files>
-      <File FileName="Assets\Scripts\Collect.cs" Line="28" Column="94" />
-      <File FileName="Assets\Scripts\Pickup.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player.cs" Line="23" Column="45" />
-      <File FileName="Assets\Editor\BuildManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\WeaponSpread.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Weapon.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Projectile.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Collect.cs" Line="33" Column="1" />
+      <File FileName="Unity.sln" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerTest.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Collect.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Charger.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Menu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Anchor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Game.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Audio.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -149,5 +149,59 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: Pause
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 122
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Play
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 72
+        width: 38
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: 1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 114
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: 2
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 105
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: 3
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 97
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Idle
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 123
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 

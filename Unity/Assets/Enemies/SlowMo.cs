@@ -1,18 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Charger : MonoBehaviour 
+public class SlowMo : MonoBehaviour 
 {
-	public enum ChargerState {Idle, Waiting, Charging};
-	
-	public ChargerState State = ChargerState.Idle;
-	public float WaitTime = 2;
-	public float IdleTime = 1;
 	public float StartTime;
-	public Vector3 TargetPosition;
 	public float Speed = 2;
-	
-	public Vector3 Direction;
 	public GameObject Gem;
 	
 	//=======================================================================================================================================================/
@@ -25,35 +17,7 @@ public class Charger : MonoBehaviour
 	//=======================================================================================================================================================/
 	void Update () 
 	{
-		float time = Time.time - StartTime;
-		GameObject player = (GameObject)GameObject.FindGameObjectWithTag("Player");
-		
-		if(State == ChargerState.Idle)
-		{
-			if(time > IdleTime)
-			{
-				State = ChargerState.Waiting;
-				StartTime = Time.time;
-			}
-		}
-		else if (State == ChargerState.Waiting)
-		{
-			if(time > WaitTime)
-			{
-				State = ChargerState.Charging;
-				StartTime = Time.time;
-			}
-			
-			// Set Rotation to aim at player //
-			Direction = (transform.position - player.transform.position).normalized;
-			float r = (float)Mathf.Atan2(Direction.y, Direction.x);		
-			transform.localRotation = Quaternion.AngleAxis(r * Mathf.Rad2Deg + 90, Vector3.forward);
-			
-		}
-		else if (State == ChargerState.Charging)
-		{
-			transform.position -= Direction * Speed * Time.deltaTime;
-		}
+		transform.position += Vector3.down * Speed * Time.deltaTime;
 	}
 	
 	//=======================================================================================================================================================/
@@ -61,7 +25,7 @@ public class Charger : MonoBehaviour
 	{
 		float x = Screen.width * Random.value;
 		float y = Screen.height * Random.value;
-		Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3 (x, y, 0));
+		Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3 (x, Screen.height, 0));
 		pos.z = 0;
 		
 		return pos;
@@ -77,7 +41,7 @@ public class Charger : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		// Play Effect //
-		for(int i=0; i<10; i++)
+		for(int i=0; i<4; i++)
 		{
 			Vector3 pos = transform.position + new Vector3(Random.value * 0.4f - 0.2f, Random.value * 0.4f - 0.2f, 0);
 			GameObject.Instantiate(Gem, pos, Quaternion.identity);

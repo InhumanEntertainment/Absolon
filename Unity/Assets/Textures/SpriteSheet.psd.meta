@@ -44,10 +44,10 @@ TextureImporter:
     - name: Player
       rect:
         serializedVersion: 2
-        x: 24
-        y: 124
-        width: 22
-        height: 18
+        x: 25
+        y: 125
+        width: 20
+        height: 16
       alignment: 0
       pivot: {x: .5, y: .5}
     - name: Green
@@ -143,17 +143,17 @@ TextureImporter:
     - name: Charge
       rect:
         serializedVersion: 2
-        x: 94
-        y: 34
-        width: 29
-        height: 30
+        x: 96
+        y: 36
+        width: 25
+        height: 28
       alignment: 0
       pivot: {x: .5, y: .5}
     - name: Pause
       rect:
         serializedVersion: 2
-        x: 187
-        y: 122
+        x: 113
+        y: 6
         width: 16
         height: 16
       alignment: 0
@@ -161,8 +161,8 @@ TextureImporter:
     - name: Play
       rect:
         serializedVersion: 2
-        x: 166
-        y: 72
+        x: 131
+        y: 4
         width: 38
         height: 21
       alignment: 0
@@ -170,8 +170,8 @@ TextureImporter:
     - name: 1
       rect:
         serializedVersion: 2
-        x: 236
-        y: 114
+        x: 66
+        y: 10
         width: 14
         height: 6
       alignment: 0
@@ -179,8 +179,8 @@ TextureImporter:
     - name: 2
       rect:
         serializedVersion: 2
-        x: 236
-        y: 105
+        x: 81
+        y: 10
         width: 14
         height: 6
       alignment: 0
@@ -188,8 +188,8 @@ TextureImporter:
     - name: 3
       rect:
         serializedVersion: 2
-        x: 236
-        y: 97
+        x: 96
+        y: 10
         width: 14
         height: 6
       alignment: 0
@@ -197,10 +197,91 @@ TextureImporter:
     - name: Idle
       rect:
         serializedVersion: 2
-        x: 238
-        y: 123
+        x: 55
+        y: 8
         width: 10
         height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Spinner Projectile
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 136
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Spinner
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 94
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Gem
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 71
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Player
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 25
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: SlowMo
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 39
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Uber
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 0
+        width: 105
+        height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Energy Pickup
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 111
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Psycho
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 83
+        width: 118
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Reticule
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 198
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 

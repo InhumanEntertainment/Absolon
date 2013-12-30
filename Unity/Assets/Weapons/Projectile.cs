@@ -13,10 +13,10 @@ public class Projectile : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
 		// Play Effect //
-        /*if (collider.tag == "Enemy")
-        {
-			Destroy(collider.gameObject);
+        //if (collider.tag == "Enemy")
+        //{
+			//Destroy(collider.gameObject);
 			Destroy(this.gameObject);
-        } */   
+        //} 
     }
 }

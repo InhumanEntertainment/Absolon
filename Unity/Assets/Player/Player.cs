@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 	public GameObject Chargers;
 	bool mode = false;
 
+    public Vector3 TouchOffset;
+
     //======================================================================================================================================//
     void Awake()
     {
@@ -26,7 +28,7 @@ public class Player : MonoBehaviour
         {            
             Vector3 Mouse = GetMousePosition();
 
-            transform.position = Mouse;
+            transform.position = Mouse + TouchOffset;
             Weapon.transform.position = transform.position + Weapon.Offset;
 
             Weapon.Fire();

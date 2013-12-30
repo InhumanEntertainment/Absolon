@@ -22,7 +22,8 @@ public class GameCamera : MonoBehaviour
 
     // Screen Resolution Overrides
     public float UnitScale = 10;
-    public int DefaultTargetHeight = 160;
+    public int DefaultTargetWidth = 240;
+    public int DefaultTargetHeight = 360;
     public ResolutionOverride[] Resolutions;
 	
     //============================================================================================================================================================================================//
@@ -36,35 +37,77 @@ public class GameCamera : MonoBehaviour
             return;
         }
 
-
+        float targetWidth = DefaultTargetWidth;
         float targetHeight = DefaultTargetHeight;
 
-        foreach (ResolutionOverride resolution in Resolutions)
+        /*foreach (ResolutionOverride resolution in Resolutions)
         {
             if (Screen.height == resolution.ScreenHeight)
             {
                 //print("Found Override: " + resolution.ScreenHeight + " : " + resolution.TargetHeight);
                 targetHeight = resolution.TargetHeight;
             }
-        }
+        }*/
 
-        camera.orthographicSize = targetHeight / UnitScale / 2;
-        print("Resolution: " + Screen.height + " -> " + targetHeight + " - Scale: " + Screen.height / targetHeight);
+        //camera.orthographicSize = targetHeight / UnitScale / 2;
+        //print("Resolution: " + Screen.height + " -> " + targetHeight + " - Scale: " + Screen.height / targetHeight);
     }
 
 	//============================================================================================================================================================================================//
-	public float CamExact;
-	public int CamClosest;
-	public float CamAspect;
+	public float CamWidthExact;
+    public float CamHeightExact;
+    public int CamWidthClosest;
+    public int CamHeightClosest;
+    public float CamAspect;
+    public float CamOffset;
+    public float CamSize;
 
-	void Update()
+    public float ScreenAspect;
+    public float TargetAspect;
+
+    void Update()
 	{
-		CamExact = Screen.height / (float)DefaultTargetHeight;
-		CamClosest = Mathf.RoundToInt(CamExact);
-		CamAspect = Screen.width / (float)Screen.height;
+        ScreenAspect = Screen.width / (float)Screen.height;
+        TargetAspect = DefaultTargetWidth / (float)DefaultTargetHeight;
 
-		camera.orthographicSize = (DefaultTargetHeight / UnitScale) * CamExact / CamClosest / 2;
-		//print ((DefaultTargetHeight / UnitScale) * CamExact / CamClosest / 2 * DefaultTargetHeight);
+        float AspectRatio = ScreenAspect;
+
+        if (ScreenAspect < TargetAspect)
+        {
+            AspectRatio = 1 / ScreenAspect;
+            camera.rect = new Rect(0, 0, 1, 1);
+        }
+        else
+        {
+            AspectRatio = 1 / TargetAspect;
+
+            // Center Viewport on PC //
+            //if (Application.platform == RuntimePlatform.MetroPlayerX86 || Application.platform == RuntimePlatform.MetroPlayerX64)
+                camera.rect = new Rect((1 - (TargetAspect / ScreenAspect)) / 2, 0, TargetAspect / ScreenAspect, 1);
+            //else
+            //    camera.rect = new Rect(0, 0, TargetAspect / ScreenAspect, 1);
+        }
+
+        camera.orthographicSize = AspectRatio;
+
+
+        //CamAspect = Screen.width / (float)Screen.height;
+
+        // Width //
+        //CamWidthExact = Screen.width / (float)DefaultTargetWidth;
+        //CamWidthClosest = Mathf.RoundToInt(CamWidthExact);
+
+        // Height //
+        //CamHeightExact = Screen.height / (float)DefaultTargetHeight;
+        //CamHeightClosest = Mathf.RoundToInt(CamHeightExact);
+
+        /*float CamClosest = CamWidthExact;
+        if (Mathf.Abs(CamWidthExact) > Mathf.Abs(CamHeightExact))
+            CamClosest = CamHeightExact;*/
+
+        //CamSize = CamClosest;
+        //camera.orthographicSize = CamClosest;
+        //camera.orthographicSize = ((DefaultTargetHeight / UnitScale) * CamHeightExact / CamClosest / 2 * DefaultTargetHeight);
 	}
 	
 	//============================================================================================================================================================================================//

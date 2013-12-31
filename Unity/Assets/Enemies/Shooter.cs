@@ -60,8 +60,8 @@ public class Shooter : MonoBehaviour
 		for(int i=0; i<3; i++)
 		{
 			Vector3 pos = transform.position + new Vector3(Random.value * 0.4f - 0.2f, Random.value * 0.4f - 0.2f, 0);
-			GameObject obj = (GameObject)GameObject.Instantiate(Gem, pos, Quaternion.identity);
-            //GameObject obj = (GameObject)GameObject.Instantiate(Gem, Vector3.zero, Quaternion.identity);
+			GameObject obj = (GameObject)Game.Spawn(Gem, pos, Quaternion.identity);
+            //GameObject obj = (GameObject)Game.Spawn(Gem, Vector3.zero, Quaternion.identity);
             //obj.transform.parent = player.transform;
 
 		}

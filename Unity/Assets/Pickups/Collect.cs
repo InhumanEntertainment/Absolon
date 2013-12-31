@@ -24,7 +24,6 @@ public class Collect : MonoBehaviour
 	{
 		if (collider.tag == "Player")
 		{
-
 			Destroy(this.gameObject);
 		}    
 	}

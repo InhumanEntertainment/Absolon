@@ -123,12 +123,14 @@ public class Game : MonoBehaviour
 	//============================================================================================================================================================================================//
 	void SetScreen(GameScreen screen)
 	{
-		//print("Set Screen: " + screen.Name);
+		print("Set Screen: " + screen.Name);
 		
 		if (screen != CurrentScreen)
 		{
-			LastScreen = CurrentScreen;
-			CurrentScreen = screen;
+            CurrentScreen.Close(this);
+            LastScreen = CurrentScreen;
+            CurrentScreen = screen;
+            screen.Open(this);
 		}
 	}
 	
@@ -145,10 +147,10 @@ public class Game : MonoBehaviour
 	}
 	
 	//============================================================================================================================================================================================//
-	public void Main()
+	public void Menu()
 	{
 		print("Frontend: Menu");
-		SetScreen("Main");
+		SetScreen("Menu");
 	}
 	
 	//============================================================================================================================================================================================//
@@ -193,7 +195,7 @@ public class Game : MonoBehaviour
 		print("Frontend: Quit");
 		
 		CleanupScene();
-		SetScreen("Main");
+		SetScreen("Menu");
 		Time.timeScale = 1;
 		if (CurrentLevel != "LevelSelect")
 		{
@@ -246,13 +248,18 @@ public class Game : MonoBehaviour
 	public void Play()
 	{
 		print("Frontend: Play");
-		string level = "LevelSelect";
+        SetScreen("Game");
 	}
 	
 	//============================================================================================================================================================================================//
 	// Spawn objects into group so they can be easily cleanup up //
 	//============================================================================================================================================================================================//
-	static public Object Spawn(Object original, Vector3 position)
+    static public Object Spawn(Object original)
+    {
+        return Game.Spawn(original, Vector3.zero, Quaternion.identity, false);
+    }
+    
+    static public Object Spawn(Object original, Vector3 position)
 	{
 		return Game.Spawn(original, position, Quaternion.identity, false);
 	}
@@ -291,14 +298,6 @@ public class Game : MonoBehaviour
 	{
 		public string Name = "Default";
 	}
-	
-	[System.Serializable]
-	public class GameScreen
-	{
-		public string Name = "";
-		public GameObject AnimObject;
-	}
-	
 	
 		
 		

@@ -34,7 +34,7 @@ public class WeaponSpread : Weapon
     //=======================================================================================================================================================/
     public override void CreateProjectile()
     {
-        Projectile projectile1 = (Projectile)GameObject.Instantiate(Projectile, transform.position, Quaternion.identity);
+        Projectile projectile1 = (Projectile)Game.Spawn(Projectile, transform.position, Quaternion.identity);
         projectile1.rigidbody2D.velocity = new Vector2(Spread, Velocity);            
     }
 }

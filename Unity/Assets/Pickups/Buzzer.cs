@@ -66,4 +66,14 @@ public class Buzzer : MonoBehaviour
             transform.localPosition = Buffer;
         }    
 	}
+
+    //=======================================================================================================================================================/
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        print("hit");
+        if (collision.collider.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

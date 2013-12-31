@@ -50,7 +50,7 @@ public class Spawner : MonoBehaviour
     //=======================================================================================================================================================/
     public virtual void Create()
     {
-        Instantiate(Object, GetStartPosition(), Quaternion.identity);
+        Game.Spawn(Object, GetStartPosition(), Quaternion.identity);
     }
 
     //=======================================================================================================================================================/

@@ -9,6 +9,7 @@ public class ResolutionOverride
     public int TargetHeight;
 }
 
+[ExecuteInEditMode]
 public class GameCamera : MonoBehaviour 
 {
     public bool PixelPerfect = true;  
@@ -88,7 +89,7 @@ public class GameCamera : MonoBehaviour
             //    camera.rect = new Rect(0, 0, TargetAspect / ScreenAspect, 1);
         }
 
-        camera.orthographicSize = AspectRatio;
+        camera.orthographicSize = AspectRatio * (DefaultTargetWidth / UnitScale / 2);
 
 
         //CamAspect = Screen.width / (float)Screen.height;

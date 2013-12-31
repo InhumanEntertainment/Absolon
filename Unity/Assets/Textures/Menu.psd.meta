@@ -1,0 +1,139 @@
+fileFormatVersion: 2
+guid: 726bcc4b95bc2e24da2e0a13c05d5fee
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Menu Background
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 240
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Pause Background
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 120
+        width: 240
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Menu Play
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 64
+        width: 116
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Twitter
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 92
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Facebook
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 66
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: About
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 92
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Pause
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 46
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: About Background
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 120
+        width: 240
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Back
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 64
+        width: 116
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: GameOver Background
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 120
+        width: 240
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+  spritePackingTag: 
+  userData: 

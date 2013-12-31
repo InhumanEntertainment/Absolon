@@ -42,7 +42,7 @@ public class Chase : MonoBehaviour
 		for(int i=0; i<10; i++)
 		{
 			Vector3 pos = transform.position + new Vector3(Random.value * 0.4f - 0.2f, Random.value * 0.4f - 0.2f, 0);
-			GameObject.Instantiate(Gem, pos, Quaternion.identity);
+			Game.Spawn(Gem, pos, Quaternion.identity);
 		}
 		Destroy(this.gameObject);
 	}

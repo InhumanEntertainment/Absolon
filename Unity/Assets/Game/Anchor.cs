@@ -34,8 +34,14 @@ public class Anchor : MonoBehaviour
 	//=======================================================================================================================================================/
 	void Update () 
 	{
-		// Positioning //
-		Vector3 offset = Vector3.Scale(Vectors[(int)Location], new Vector3(Screen.width, Screen.height, 0));
+        Vector3 cam = Vectors[(int)Location];
+        if (Location == AnchorPoint.TopLeft || Location == AnchorPoint.MiddleLeft || Location == AnchorPoint.BottomLeft)
+            cam += new Vector3(Camera.main.rect.xMin, 0, 0);
+        else if (Location == AnchorPoint.TopRight || Location == AnchorPoint.MiddleRight || Location == AnchorPoint.BottomRight)
+            cam -= new Vector3(Camera.main.rect.xMin, 0, 0);
+
+        // Positioning //
+        Vector3 offset = Vector3.Scale(cam, new Vector3(Screen.width, Screen.height, 0));
 		Vector3 wh = Camera.main.ScreenToWorldPoint(offset);
 		wh.z = 0;
 		transform.position = wh;

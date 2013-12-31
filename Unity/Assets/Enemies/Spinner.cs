@@ -57,7 +57,7 @@ public class Spinner : MonoBehaviour
 		for(int i=0; i<4; i++)
 		{
 			Vector3 pos = transform.position + new Vector3(Random.value * 0.4f - 0.2f, Random.value * 0.4f - 0.2f, 0);
-			GameObject.Instantiate(Gem, pos, Quaternion.identity);
+			Game.Spawn(Gem, pos, Quaternion.identity);
 		}
 		Destroy(this.gameObject);
 	}
@@ -80,7 +80,7 @@ public class Spinner : MonoBehaviour
     {
         for(int i=0; i < SpawnOffsets.Length; i++)
         {
-            Projectile projectile1 = (Projectile)GameObject.Instantiate(Projectile, transform.position, Quaternion.identity);
+            Projectile projectile1 = (Projectile)Game.Spawn(Projectile, transform.position, Quaternion.identity);
             Vector3 dir = SpawnOffsets[i].normalized;
             Vector3 vel = transform.localRotation * dir;
             projectile1.rigidbody2D.velocity = vel * Velocity;

@@ -53,11 +53,17 @@ public class Shooter : MonoBehaviour
 	//=======================================================================================================================================================/
 	void OnTriggerEnter2D(Collider2D collider)
 	{
+        GameObject player = (GameObject)GameObject.FindGameObjectWithTag("Player");
+        
+
 		// Play Effect //
-		for(int i=0; i<10; i++)
+		for(int i=0; i<3; i++)
 		{
 			Vector3 pos = transform.position + new Vector3(Random.value * 0.4f - 0.2f, Random.value * 0.4f - 0.2f, 0);
-			GameObject.Instantiate(Gem, pos, Quaternion.identity);
+			GameObject obj = (GameObject)GameObject.Instantiate(Gem, pos, Quaternion.identity);
+            //GameObject obj = (GameObject)GameObject.Instantiate(Gem, Vector3.zero, Quaternion.identity);
+            //obj.transform.parent = player.transform;
+
 		}
 		Destroy(this.gameObject);
 	}

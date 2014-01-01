@@ -143,7 +143,8 @@ public class Trail : MonoBehaviour
             mesh.uv = uv;
             mesh.triangles = triangles;
 
-            MeshFilter m = GetComponent<MeshFilter>();
+            //MeshFilter m = GetComponent<MeshFilter>();
+            //m.mesh = mesh;       
             Graphics.DrawMesh(mesh, Matrix4x4.identity, renderer.material, 0);
         }
     }

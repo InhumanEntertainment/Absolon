@@ -55,9 +55,8 @@ public class Shooter : MonoBehaviour
 	{
         GameObject player = (GameObject)GameObject.FindGameObjectWithTag("Player");
         
-
 		// Play Effect //
-		for(int i=0; i<3; i++)
+		for(int i=0; i<1; i++)
 		{
 			Vector3 pos = transform.position + new Vector3(Random.value * 0.4f - 0.2f, Random.value * 0.4f - 0.2f, 0);
 			GameObject obj = (GameObject)Game.Spawn(Gem, pos, Quaternion.identity);

@@ -160,7 +160,7 @@ public class Game : MonoBehaviour
 
 		SetScreen("Pause");
 		Time.timeScale = 0f;
-		Audio.Music.Pause();
+		//Audio.Music.Pause();
 	}
 	
 	//============================================================================================================================================================================================//
@@ -179,7 +179,7 @@ public class Game : MonoBehaviour
 
 		SetScreen("Game");
 		Time.timeScale = 1;
-		Audio.Music.Play();
+		//Audio.Music.Play();
 	}
 	
 	//============================================================================================================================================================================================//
@@ -248,6 +248,7 @@ public class Game : MonoBehaviour
 	public void Play()
 	{
 		print("Frontend: Play");
+        Time.timeScale = 1;
         SetScreen("Game");
 	}
 	

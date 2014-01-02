@@ -233,7 +233,7 @@ public class Game : MonoBehaviour
 		print("Frontend: Buy Full Version");
 		
 #if UNITY_IPHONE
-		StoreKitBinding.purchaseProduct("FullVersion, 1);
+		//StoreKitBinding.purchaseProduct("FullVersion", 1);
 #endif
     }
 

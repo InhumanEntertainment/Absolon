@@ -1,0 +1,562 @@
+fileFormatVersion: 2
+guid: a2ef90e22fa40d14f868b23f0b468c08
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: FontLarge_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 301
+        width: 5
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_3
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_4
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_5
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_6
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_7
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_8
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_9
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 301
+        width: 8
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_10
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 301
+        width: 8
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_11
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_12
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_13
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_14
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_15
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_16
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 301
+        width: 12
+        height: 16
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_17
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 252
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_18
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 252
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_19
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 252
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_20
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 252
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_21
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 252
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_22
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 252
+        width: 9
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_23
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 252
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_24
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 252
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_25
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 252
+        width: 4
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_26
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 252
+        width: 4
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_27
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 252
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_28
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 252
+        width: 4
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_29
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 252
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 252
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_31
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 252
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_32
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 252
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_33
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 228
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_34
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 228
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_35
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 228
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_36
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 228
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_37
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 228
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_38
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 228
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_39
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 228
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_40
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 228
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_41
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 228
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_42
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 228
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_43
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 205
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_44
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 205
+        width: 4
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_45
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 205
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_46
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 205
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_47
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 205
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_48
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 205
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_49
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 205
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_50
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 205
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_51
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 205
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_52
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 205
+        width: 12
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_53
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 205
+        width: 4
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_54
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 205
+        width: 4
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_55
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 205
+        width: 4
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+    - name: FontLarge_56
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 205
+        width: 4
+        height: 20
+      alignment: 8
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

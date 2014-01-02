@@ -51,7 +51,7 @@ TextureImporter:
         x: 50
         y: 248
         width: 12
-        height: 15
+        height: 18
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: b
@@ -60,7 +60,7 @@ TextureImporter:
         x: 63
         y: 248
         width: 12
-        height: 15
+        height: 18
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: c
@@ -69,7 +69,7 @@ TextureImporter:
         x: 76
         y: 247
         width: 12
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: d
@@ -78,7 +78,7 @@ TextureImporter:
         x: 89
         y: 247
         width: 12
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: g
@@ -87,7 +87,7 @@ TextureImporter:
         x: 125
         y: 247
         width: 12
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: m
@@ -96,7 +96,7 @@ TextureImporter:
         x: 179
         y: 247
         width: 12
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: n
@@ -105,7 +105,7 @@ TextureImporter:
         x: 192
         y: 248
         width: 12
-        height: 15
+        height: 18
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: o
@@ -114,7 +114,7 @@ TextureImporter:
         x: 205
         y: 248
         width: 12
-        height: 15
+        height: 18
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: p
@@ -123,7 +123,7 @@ TextureImporter:
         x: 218
         y: 247
         width: 12
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: ' '
@@ -132,7 +132,7 @@ TextureImporter:
         x: 42
         y: 248
         width: 6
-        height: 15
+        height: 18
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: h
@@ -141,7 +141,7 @@ TextureImporter:
         x: 138
         y: 247
         width: 12
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: i
@@ -150,7 +150,7 @@ TextureImporter:
         x: 151
         y: 247
         width: 4
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: j
@@ -159,7 +159,7 @@ TextureImporter:
         x: 156
         y: 247
         width: 4
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: k
@@ -168,7 +168,7 @@ TextureImporter:
         x: 161
         y: 247
         width: 12
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: l
@@ -177,7 +177,7 @@ TextureImporter:
         x: 174
         y: 247
         width: 4
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: e
@@ -186,7 +186,7 @@ TextureImporter:
         x: 102
         y: 247
         width: 12
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: f
@@ -195,7 +195,7 @@ TextureImporter:
         x: 115
         y: 247
         width: 9
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: t
@@ -204,7 +204,7 @@ TextureImporter:
         x: 89
         y: 231
         width: 12
-        height: 14
+        height: 17
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: q
@@ -213,7 +213,7 @@ TextureImporter:
         x: 50
         y: 229
         width: 12
-        height: 16
+        height: 19
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: r
@@ -222,7 +222,7 @@ TextureImporter:
         x: 63
         y: 230
         width: 12
-        height: 15
+        height: 18
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: s
@@ -231,7 +231,7 @@ TextureImporter:
         x: 76
         y: 230
         width: 12
-        height: 15
+        height: 18
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: u
@@ -240,7 +240,7 @@ TextureImporter:
         x: 102
         y: 231
         width: 12
-        height: 14
+        height: 17
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: v
@@ -249,7 +249,7 @@ TextureImporter:
         x: 115
         y: 231
         width: 12
-        height: 14
+        height: 17
       alignment: 1
       pivot: {x: 0, y: 1}
     - name: w
@@ -412,6 +412,150 @@ TextureImporter:
         y: 211
         width: 4
         height: 15
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: A
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 301
+        width: 12
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: B
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 301
+        width: 12
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: C
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 301
+        width: 12
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: D
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 301
+        width: 12
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: E
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 301
+        width: 12
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: F
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 301
+        width: 12
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: G
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 301
+        width: 12
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: H
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 301
+        width: 12
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: I
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 301
+        width: 8
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: J
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 301
+        width: 8
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: K
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 301
+        width: 12
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: L
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 301
+        width: 11
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: M
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 301
+        width: 12
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: N
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 301
+        width: 12
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: O
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 301
+        width: 12
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+    - name: P
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 301
+        width: 12
+        height: 16
       alignment: 1
       pivot: {x: 0, y: 1}
   spritePackingTag: 

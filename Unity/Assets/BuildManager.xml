@@ -1,32 +1,123 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <BuildManager xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Current>1</Current>
+  <Current>0</Current>
   <Builds>
     <Build>
-      <Name>DNA 2</Name>
-      <Version>0.1</Version>
-      <BundleId>com.inhuman.dna2</BundleId>
-      <Path>Build/DNA 2/</Path>
-      <Target>StandaloneWindows</Target>
+      <Name>Absolon Metro</Name>
+      <Version>1.0</Version>
+      <BundleId>com.inhuman.default</BundleId>
+      <Path>Build/WIN8/</Path>
+      <Target>MetroPlayer</Target>
       <Options>AutoRunPlayer ShowBuiltPlayer</Options>
       <Script />
       <ScriptCommand />
-      <Aspect>iPhone</Aspect>
-      <Icon>6546894ef69e8cb4e8a04bb3d5476c44</Icon>
-      <Splash>2a2a8591482a58b4b931ada83041fd1a</Splash>
+      <Aspect>Free</Aspect>
+      <Icon>8799f9d56c355c84cb8e30cd512f2b7c</Icon>
+      <Splash>6546894ef69e8cb4e8a04bb3d5476c44</Splash>
     </Build>
     <Build>
-      <Name>DNA 2</Name>
-      <Version>0.1</Version>
-      <BundleId>com.inhuman.dna2hd</BundleId>
-      <Path>Build/DNA 2 HD/</Path>
+      <Name>Absolon</Name>
+      <Version>1.0</Version>
+      <BundleId>com.inhuman.default</BundleId>
+      <Path>Build/WP8/</Path>
+      <Target>WP8Player</Target>
+      <Options>AutoRunPlayer ShowBuiltPlayer</Options>
+      <Script />
+      <ScriptCommand />
+      <Aspect>Free</Aspect>
+      <Icon>912ccc47f70d77f4ab0b751f263d6208</Icon>
+      <Splash>366a3f703747b854cb6fbd9d796dee11</Splash>
+    </Build>
+    <Build>
+      <Name>Absolon PC</Name>
+      <Version>1.0</Version>
+      <BundleId>com.inhuman.default</BundleId>
+      <Path>Build/PC/</Path>
       <Target>StandaloneWindows</Target>
       <Options>AutoRunPlayer ShowBuiltPlayer</Options>
       <Script />
       <ScriptCommand />
-      <Aspect>iPad</Aspect>
+      <Aspect>Free</Aspect>
+      <Icon>8799f9d56c355c84cb8e30cd512f2b7c</Icon>
+      <Splash>6546894ef69e8cb4e8a04bb3d5476c44</Splash>
+    </Build>
+    <Build>
+      <Name>Absolon</Name>
+      <Version>1.0</Version>
+      <BundleId>com.inhuman.default</BundleId>
+      <Path>Build/WEB/</Path>
+      <Target>WebPlayer</Target>
+      <Options>AutoRunPlayer ShowBuiltPlayer</Options>
+      <Script />
+      <ScriptCommand />
+      <Aspect>Free</Aspect>
+      <Icon>912ccc47f70d77f4ab0b751f263d6208</Icon>
+      <Splash>2b494c2107822b14da56b40fe5c78732</Splash>
+    </Build>
+    <Build>
+      <Name>Absolon</Name>
+      <Version>1.0</Version>
+      <BundleId>com.inhuman.default</BundleId>
+      <Path>Build/ANDROID/</Path>
+      <Target>Android</Target>
+      <Options>AutoRunPlayer ShowBuiltPlayer</Options>
+      <Script />
+      <ScriptCommand />
+      <Aspect>Free</Aspect>
+      <Icon>2b494c2107822b14da56b40fe5c78732</Icon>
+      <Splash>53d3d261fb6c4a54287ed5252575530a</Splash>
+    </Build>
+    <Build>
+      <Name>Absolon Ouya</Name>
+      <Version>1.0</Version>
+      <BundleId>com.inhuman.default</BundleId>
+      <Path>Build/OUYA/</Path>
+      <Target>Android</Target>
+      <Options>AutoRunPlayer ShowBuiltPlayer</Options>
+      <Script />
+      <ScriptCommand />
+      <Aspect>Free</Aspect>
+      <Icon />
+      <Splash />
+    </Build>
+    <Build>
+      <Name>Absolon</Name>
+      <Version>1.0</Version>
+      <BundleId>com.inhuman.default</BundleId>
+      <Path>Build/IOS/</Path>
+      <Target>iPhone</Target>
+      <Options>AutoRunPlayer ShowBuiltPlayer</Options>
+      <Script />
+      <ScriptCommand />
+      <Aspect>Free</Aspect>
       <Icon>6546894ef69e8cb4e8a04bb3d5476c44</Icon>
-      <Splash>2a2a8591482a58b4b931ada83041fd1a</Splash>
+      <Splash>6546894ef69e8cb4e8a04bb3d5476c44</Splash>
+    </Build>
+    <Build>
+      <Name>Absolon</Name>
+      <Version>1.0</Version>
+      <BundleId>com.inhuman.default</BundleId>
+      <Path>Build/CHROME/</Path>
+      <Target>NaCl</Target>
+      <Options>AutoRunPlayer ShowBuiltPlayer</Options>
+      <Script />
+      <ScriptCommand />
+      <Aspect>Free</Aspect>
+      <Icon>6546894ef69e8cb4e8a04bb3d5476c44</Icon>
+      <Splash>6546894ef69e8cb4e8a04bb3d5476c44</Splash>
+    </Build>
+    <Build>
+      <Name>Absolon</Name>
+      <Version>1.0</Version>
+      <BundleId>com.inhuman.default</BundleId>
+      <Path>Build/BB10/</Path>
+      <Target>BB10</Target>
+      <Options>AutoRunPlayer ShowBuiltPlayer</Options>
+      <Script />
+      <ScriptCommand />
+      <Aspect>Free</Aspect>
+      <Icon />
+      <Splash>2b494c2107822b14da56b40fe5c78732</Splash>
     </Build>
   </Builds>
 </BuildManager>

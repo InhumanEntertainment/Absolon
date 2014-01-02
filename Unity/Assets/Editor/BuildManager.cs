@@ -118,7 +118,11 @@ public class Build
     //=====================================================================================================================================//
     public string BuildPath()
     {
-        return Path + Name + TargetExtension[Target];
+        string result = Path + Name;
+        if(TargetExtension.ContainsKey(Target))
+            result += TargetExtension[Target];
+
+        return result;
     }
 
     //=====================================================================================================================================//

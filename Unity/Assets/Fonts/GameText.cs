@@ -9,14 +9,18 @@ using System.Collections.Generic;
 [ExecuteInEditMode]
 public class GameText : MonoBehaviour 
 {
-    public Texture2D Texture;
-    public float Spacing = 1;
-    float PreviousSpacing = 1;
+    public GameFont Font;
     public string Text = "Default";
+
+    GameFont PreviousFont;
     string PreviousText = "Default";
+    string PreviousCharacters;
+    float PreviousSpacing = 1;
 
     float FPS = 60;
+    [HideInInspector]
     public float PixelUnits = 0;
+    [HideInInspector]
     public List<Object> SavedSprites;
     Mesh Mesh;
 
@@ -24,7 +28,6 @@ public class GameText : MonoBehaviour
     void Awake()
     {
         Mesh = new Mesh();
-        //CreateSprites();
 	}
 
     //============================================================================================================================================//
@@ -37,72 +40,19 @@ public class GameText : MonoBehaviour
         string fps = FPS.ToString("n2");
         Text = fps;
 
-	    if(Text != PreviousText || Spacing != PreviousSpacing)
+        if (Font != null)
         {
-            //CreateSprites();
-            CreateMesh();
-        }
+            if (Text != PreviousText || Font.Spacing != PreviousSpacing || Font != PreviousFont || PreviousCharacters != Font.Characters)
+                CreateMesh();
 
-        PreviousText = Text;
-        PreviousSpacing = Spacing;
+            PreviousText = Text;
+            PreviousSpacing = Font.Spacing;
+            PreviousFont = Font;
+            PreviousCharacters = Font.Characters;
+
+            //Graphics.DrawMesh(Mesh, transform.localToWorldMatrix, Font.Material, 0);
+        }
 	}
-
-    //============================================================================================================================================//
-    void CreateSprites()
-    {
-        // Delete Old sprites //
-        while(transform.childCount > 0)
-        { 
-            Transform child = transform.GetChild(0);
-            DestroyImmediate(child.gameObject);
-        }
-
-        // Create sprite dictionary //      
-        Object[] Sprites;
-#if UNITY_EDITOR
-        string texturePath = AssetDatabase.GetAssetPath(Texture);
-        Sprites = AssetDatabase.LoadAllAssetsAtPath(texturePath);
-        SavedSprites = new List<Object>();
-        TextureImporter importer = TextureImporter.GetAtPath(texturePath) as TextureImporter;
-        PixelUnits = importer.spritePixelsToUnits;
-#else
-        Sprites = SavedSprites.ToArray();
-#endif
-
-        Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
-        foreach (Object obj in Sprites)
-        {
-            if(obj.GetType() == typeof(Sprite))
-            {
-                if ((obj as Sprite).texture == Texture)
-                {
-                    Sprite sprite = (obj as Sprite);
-                    sprites.Add(sprite.name, sprite);
-
-#if UNITY_EDITOR
-                    SavedSprites.Add(sprite);
-#endif
-                }
-            }
-        }
-
-        // Create new Sprites //
-        float offset = 0;
-        for(int i=0; i < Text.Length; i++)
-        {
-            string letter = Text.Substring(i, 1);
-            
-            if (sprites.ContainsKey(letter))
-            {
-                var go = new GameObject(i.ToString() + "_" + letter);
-                go.transform.parent = transform;
-                SpriteRenderer renderer = go.AddComponent<SpriteRenderer>();
-                renderer.sprite = sprites[letter];
-                go.transform.localPosition = new Vector3(offset, 0, 0);
-                offset += (sprites[letter].textureRect.width + Spacing) / PixelUnits;   
-            }
-        }
-    }
 
     //============================================================================================================================================//
     void CreateMesh()
@@ -114,7 +64,7 @@ public class GameText : MonoBehaviour
         // Create sprite dictionary //      
         Object[] Sprites;
 #if UNITY_EDITOR
-        string texturePath = AssetDatabase.GetAssetPath(Texture);
+        string texturePath = AssetDatabase.GetAssetPath(Font.Material.mainTexture);
         Sprites = AssetDatabase.LoadAllAssetsAtPath(texturePath);
         SavedSprites = new List<Object>();
         TextureImporter importer = TextureImporter.GetAtPath(texturePath) as TextureImporter;
@@ -124,25 +74,32 @@ public class GameText : MonoBehaviour
 #endif
 
         Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
+        int index = 0;
         foreach (Object obj in Sprites)
         {
             if (obj.GetType() == typeof(Sprite))
             {
-                if ((obj as Sprite).texture == Texture)
+                if ((obj as Sprite).texture == Font.Material.mainTexture)
                 {
                     Sprite sprite = (obj as Sprite);
-                    sprites.Add(sprite.name, sprite);
+
+                    if (index < Font.Characters.Length)
+                    {
+                        string name = Font.Characters.Substring(index, 1);
+                        sprites.Add(name, sprite);
+                    }
 
 #if UNITY_EDITOR
                     SavedSprites.Add(sprite);
 #endif
+                    index++;
                 }
             }
         }
 
         // Create Characters //
         float offset = 0;
-        int index = 0;
+        index = 0;
         for (int i = 0; i < Text.Length; i++)
         {
             string letter = Text.Substring(i, 1);
@@ -157,13 +114,13 @@ public class GameText : MonoBehaviour
                 Vertices.Add(new Vector3(offset + sprite.textureRect.width, 0, 0) / PixelUnits);
                 Vertices.Add(new Vector3(offset, 0, 0) / PixelUnits);
 
-                offset += (sprite.textureRect.width + Spacing);
+                offset += (sprite.textureRect.width + Font.Spacing);
 
                 // UVs //
-                Uvs.Add(new Vector2(sprite.textureRect.x / (float)Texture.width, sprite.textureRect.y / (float)Texture.height));
-                Uvs.Add(new Vector2(sprite.textureRect.xMax / (float)Texture.width, sprite.textureRect.y / (float)Texture.height));
-                Uvs.Add(new Vector2(sprite.textureRect.xMax / (float)Texture.width, sprite.textureRect.yMax / (float)Texture.height));
-                Uvs.Add(new Vector2(sprite.textureRect.x / (float)Texture.width, sprite.textureRect.yMax / (float)Texture.height));
+                Uvs.Add(new Vector2(sprite.textureRect.x / (float)Font.Material.mainTexture.width, sprite.textureRect.y / (float)Font.Material.mainTexture.height));
+                Uvs.Add(new Vector2(sprite.textureRect.xMax / (float)Font.Material.mainTexture.width, sprite.textureRect.y / (float)Font.Material.mainTexture.height));
+                Uvs.Add(new Vector2(sprite.textureRect.xMax / (float)Font.Material.mainTexture.width, sprite.textureRect.yMax / (float)Font.Material.mainTexture.height));
+                Uvs.Add(new Vector2(sprite.textureRect.x / (float)Font.Material.mainTexture.width, sprite.textureRect.yMax / (float)Font.Material.mainTexture.height));
 
                 // Triangles //
                 Triangles.Add(index);
@@ -185,8 +142,15 @@ public class GameText : MonoBehaviour
         Mesh.triangles = Triangles.ToArray();
 
         MeshFilter m = GetComponent<MeshFilter>();
+        if (m == null)
+            m = gameObject.AddComponent<MeshFilter>();
+
+        MeshRenderer r = GetComponent<MeshRenderer>();
+        if (r == null)
+            r = gameObject.AddComponent<MeshRenderer>();
+
         m.mesh = Mesh;
-        //Graphics.DrawMesh(Mesh, Matrix4x4.identity);
+        renderer.material = Font.Material;      
 
         //print("Rebuild Mesh: " + Text.Length + " Characters");
     }

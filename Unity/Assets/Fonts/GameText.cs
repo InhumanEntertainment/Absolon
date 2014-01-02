@@ -10,14 +10,15 @@ using System.Collections.Generic;
 public class GameText : MonoBehaviour 
 {
     public GameFont Font;
-    public string Text = "Default";
+    public string Text = "Default";              
 
     GameFont PreviousFont;
     string PreviousText = "Default";
     string PreviousCharacters;
     float PreviousSpacing = 1;
+    Color PreviousTopColor;
+    Color PreviousBottomColor;
 
-    float FPS = 60;
     [HideInInspector]
     public float PixelUnits = 0;
     [HideInInspector]
@@ -33,22 +34,17 @@ public class GameText : MonoBehaviour
     //============================================================================================================================================//
     void Update()
     {
-        FPS = FPS * 0.98f + (1 / Time.deltaTime) * 0.02f;
-        if (FPS == Mathf.Infinity)
-            FPS = 0;
-
-        string fps = FPS.ToString("n2");
-        Text = fps;
-
         if (Font != null)
         {
-            if (Text != PreviousText || Font.Spacing != PreviousSpacing || Font != PreviousFont || PreviousCharacters != Font.Characters)
+            if (PreviousBottomColor != Font.BottomColor || PreviousTopColor != Font.TopColor || Text != PreviousText || Font.Spacing != PreviousSpacing || Font != PreviousFont || PreviousCharacters != Font.Characters)
                 CreateMesh();
 
             PreviousText = Text;
             PreviousSpacing = Font.Spacing;
             PreviousFont = Font;
             PreviousCharacters = Font.Characters;
+            PreviousTopColor = Font.TopColor;
+            PreviousBottomColor = Font.BottomColor;
 
             //Graphics.DrawMesh(Mesh, transform.localToWorldMatrix, Font.Material, 0);
         }
@@ -60,6 +56,7 @@ public class GameText : MonoBehaviour
         List<Vector3> Vertices = new List<Vector3>();
         List<Vector2> Uvs = new List<Vector2>();
         List<int> Triangles = new List<int>();
+        List<Color> Colors = new List<Color>();
 
         // Create sprite dictionary //      
         Object[] Sprites;
@@ -122,6 +119,12 @@ public class GameText : MonoBehaviour
                 Uvs.Add(new Vector2(sprite.textureRect.xMax / (float)Font.Material.mainTexture.width, sprite.textureRect.yMax / (float)Font.Material.mainTexture.height));
                 Uvs.Add(new Vector2(sprite.textureRect.x / (float)Font.Material.mainTexture.width, sprite.textureRect.yMax / (float)Font.Material.mainTexture.height));
 
+                // Colors //
+                Colors.Add(Font.BottomColor);
+                Colors.Add(Font.BottomColor);
+                Colors.Add(Font.TopColor);
+                Colors.Add(Font.TopColor);            
+
                 // Triangles //
                 Triangles.Add(index);
                 Triangles.Add(index + 2);
@@ -140,6 +143,7 @@ public class GameText : MonoBehaviour
         Mesh.vertices = Vertices.ToArray();
         Mesh.uv = Uvs.ToArray();
         Mesh.triangles = Triangles.ToArray();
+        Mesh.colors = Colors.ToArray();
 
         MeshFilter m = GetComponent<MeshFilter>();
         if (m == null)

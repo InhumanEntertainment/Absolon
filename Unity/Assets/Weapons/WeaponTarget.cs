@@ -30,7 +30,7 @@ public class WeaponTarget : Weapon
         }
 
         Reticule.position = closestEnemy;
-
+        Debug.DrawLine(player.transform.localPosition, closestEnemy, Color.cyan);
     }
 
     //=======================================================================================================================================================/

@@ -7,7 +7,8 @@ public class GameFont : ScriptableObject
     public Material Material;
     public string Characters;
     public float Spacing;
-    float shit;
+    public Color TopColor = new Color(1, 1, 1, 1f);
+    public Color BottomColor = new Color(1, 1, 1, 1f);
 
     //============================================================================================================================================//
     void OnEnable()

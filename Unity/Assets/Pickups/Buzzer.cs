@@ -70,7 +70,6 @@ public class Buzzer : MonoBehaviour
     //=======================================================================================================================================================/
     void OnCollisionEnter2D(Collision2D collision)
     {
-        print("hit");
         if (collision.collider.tag == "Player")
         {
             Destroy(this.gameObject);

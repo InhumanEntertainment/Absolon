@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour
 	//=======================================================================================================================================================/
 	void Update()
 	{
-		Vector3 mouse = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		/*Vector3 mouse = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		bool mouse_over = collider2D.OverlapPoint(mouse);
 		if(mouse_over)
 		{
@@ -17,7 +17,7 @@ public class Menu : MonoBehaviour
 				print ("Menu: " + Message);
 				SendMessage (Message);
 			}
-		}
+		}*/
 	}
 
 	//=======================================================================================================================================================/

@@ -25,12 +25,14 @@ public class Trail : MonoBehaviour
     //============================================================================================================================================//
     void Update()
     {
-        //if (Input.GetMouseButton(0))
-        //{
+        if (Time.timeScale == 1)
+        {
+            //if (Input.GetMouseButton(0))
+            //{
             Target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Target.z = 0;
             Target = transform.position;
- 
+
             Debug.DrawLine(Target, transform.position, Color.black);
 
             Vector3 vec = Target - transform.position;
@@ -39,7 +41,7 @@ public class Trail : MonoBehaviour
 
             Vector3 prevposition = Tail[Tail.Count - 1];
             DistanceTraveled = Vector3.Distance(Target, prevposition);
-            
+
             /*if (DistanceTraveled > StepSpacing)
             {
                 int steps = (int)(DistanceTraveled / StepSpacing);
@@ -55,13 +57,14 @@ public class Trail : MonoBehaviour
                     DistanceTraveled -= StepSpacing;
                 }
             }*/
-            
+
             Tail.Add(Target);
             if (Tail.Count > TailMax)
                 Tail.RemoveRange(0, Tail.Count - TailMax);
 
-        //}
-
+            //}
+        }
+           
         BuildMesh();
     }
 

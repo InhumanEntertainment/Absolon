@@ -5,12 +5,11 @@ public class Player : MonoBehaviour
 {
     public static Player Instance = null;
     public Weapon Weapon;
-
-	public GameObject Chasers;
-	public GameObject Chargers;
-	bool mode = false;
-
     public Vector3 TouchOffset;
+
+    float DeathTimeout = 2;
+    float DeathStart;
+    public bool isAlive = true;
 
     //======================================================================================================================================//
     void Awake()
@@ -23,9 +22,9 @@ public class Player : MonoBehaviour
     {
         Weapon.transform.position = transform.position + Weapon.Offset;
 
-	    // Mouse Down //
+        // Mouse Down //
         if (Input.GetMouseButton(0))
-        {            
+        {
             Vector3 Mouse = GetMousePosition();
 
             transform.position = Mouse + TouchOffset;
@@ -34,13 +33,28 @@ public class Player : MonoBehaviour
             Weapon.Fire();
         }
 
-		if(Input.GetKeyDown(KeyCode.Space))
-		{
-			Chasers.SetActive(mode);
-			Chargers.SetActive(!mode);
+        if(isAlive)
+        {
+            
+        }
+        else
+        {
+            float amount = Time.timeSinceLevelLoad - DeathStart;
+            if (Input.GetMouseButtonDown(0))
+                amount = DeathTimeout;
 
-			mode = !mode;
-		}
+            if (amount < DeathTimeout)
+            {
+                (renderer as SpriteRenderer).color = Color.red;
+            }
+            else
+            {
+                isAlive = true;
+                (renderer as SpriteRenderer).color = Color.white;
+            }
+
+            
+        }
 	}
 
     //======================================================================================================================================//
@@ -51,5 +65,19 @@ public class Player : MonoBehaviour
         vec.z = 0;
 
         return vec;
+    }
+
+    //=======================================================================================================================================================/
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Enemy" && isAlive)
+        {
+            //Destroy(this.gameObject);
+            // Play Effect //
+
+            isAlive = false;
+            DeathStart = Time.timeSinceLevelLoad;
+            Game.Instance.Death();
+        }
     }
 }

@@ -25,6 +25,10 @@ public class GameText : MonoBehaviour
     public List<Object> SavedSprites;
     Mesh Mesh;
 
+    public string SortingLayer;
+    public int SortingOrder;
+
+
     //============================================================================================================================================//
     void Awake()
     {
@@ -34,6 +38,11 @@ public class GameText : MonoBehaviour
     //============================================================================================================================================//
     void Update()
     {
+        if (SortingOrder != renderer.sortingOrder)
+            renderer.sortingOrder = SortingOrder;
+        if (SortingLayer != renderer.sortingLayerName)
+            renderer.sortingLayerName = SortingLayer;
+
         if (Font != null)
         {
             if (PreviousBottomColor != Font.BottomColor || PreviousTopColor != Font.TopColor || Text != PreviousText || Font.Spacing != PreviousSpacing || Font != PreviousFont || PreviousCharacters != Font.Characters)

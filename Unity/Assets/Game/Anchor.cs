@@ -41,9 +41,9 @@ public class Anchor : MonoBehaviour
             cam -= new Vector3(Camera.main.rect.xMin, 0, 0);
 
         // Positioning //
-        Vector3 offset = Vector3.Scale(cam, new Vector3(Screen.width, Screen.height, 0));
+        Vector3 offset = transform.parent.position + Vector3.Scale(cam, new Vector3(Screen.width, Screen.height, 0));
 		Vector3 wh = Camera.main.ScreenToWorldPoint(offset);
 		wh.z = 0;
-		transform.position = wh;
+		transform.localPosition = wh;
 	}
 }

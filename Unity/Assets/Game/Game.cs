@@ -5,13 +5,9 @@ using System.Collections.Generic;
 
 public class Game : MonoBehaviour 
 {
-	static public Game Instance;
-	
+	static public Game Instance;	
 	public int TargetFramerate = 60;
 	float FPS = 60;
-
-	public int Score;
-	public Weapon[] Weapons;   
 	
 	// Levels //
 	public Level[] Levels;
@@ -24,21 +20,17 @@ public class Game : MonoBehaviour
 	public GameScreen[] Screens;
 	public GameScreen CurrentScreen;
 	public GameScreen LastScreen;
-	public GameObject MainMenu;
-	public GameObject GameHud;
-	public GameObject PauseMenu;
-	
-	// Touch Controls //
-	public bool TouchControls = false;
-	public GameObject[] TouchButtons;
 	
 	// Data //
 	//public MutationData Data;
 	//public MutationSocial Social = new MutationSocial();
 	public bool FullVersion = true;
 	
-	// Inventory //
-	public List<string> Inventory = new List<string>();
+	// Gameplay //
+    public int Lives = 3;
+    public int Score = 0;
+    public int Bombs = 5;
+    public Weapon[] Weapons; 
 	
 	//============================================================================================================================================================================================//
 	void Awake()
@@ -56,16 +48,6 @@ public class Game : MonoBehaviour
 			
 			//Data = MutationData.Load();
 			
-			// Hide touch controls on pc //
-			if (!(TouchControls || Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WP8Player))
-			{
-				for (int i = 0; i < Game.Instance.TouchButtons.Length; i++)
-				{
-					if (TouchButtons[i] != null)
-						TouchButtons[i].SetActive(false);
-				}
-			}
-
 			// Mute Music if Ipod is playing already //
 			//if (InhumanIOS.IsMusicPlaying())
 			//Audio.MusicMute = true;	
@@ -196,12 +178,31 @@ public class Game : MonoBehaviour
 		
 		CleanupScene();
 		SetScreen("Menu");
-		Time.timeScale = 1;
+		//Time.timeScale = 1;
 		if (CurrentLevel != "LevelSelect")
 		{
 			Audio.PlayMusic("Menu", true);
 		}        
 	}
+
+    //============================================================================================================================================================================================//
+    public void Death()
+    {   
+        Lives--;
+
+        if(Lives < 0)
+        {
+            // Game Over //
+            Time.timeScale = 0;
+            CleanupScene();
+            SetScreen("Game Over");
+        }
+        else
+        {
+            GameText text = (GameObject.Find("Lives") as GameObject).GetComponent<GameText>();
+            text.Text = Lives.ToString();
+        }
+    }
 	
 	//============================================================================================================================================================================================//
 	public void Facebook()
@@ -248,6 +249,9 @@ public class Game : MonoBehaviour
 	public void Play()
 	{
 		print("Frontend: Play");
+        // Create Player and Level //
+        Lives = 3;
+        Score = 0;
         Time.timeScale = 1;
         SetScreen("Game");
 	}

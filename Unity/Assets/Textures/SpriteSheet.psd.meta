@@ -266,5 +266,41 @@ TextureImporter:
         height: 18
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: Multi Pickup
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 153
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Spread Pickup
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 153
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Target Pickup
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 153
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Bomb
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 174
+        width: 65
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 

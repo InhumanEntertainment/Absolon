@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 17f4b9a0e05486246bed6ba9f856e738
+guid: 3c992ab1cff82074fabd62f0ebcbbcfa
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -30,20 +30,56 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spritePixelsToUnits: 100
-  alphaIsTransparency: 0
-  textureType: 5
+  alphaIsTransparency: 1
+  textureType: 8
   buildTargetSettings:
   - buildTarget: iPhone
     maxTextureSize: 1024
-    textureFormat: 7
+    textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Background 0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 240
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Background 1
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 240
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Background 2
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 240
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Background 3
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 240
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 

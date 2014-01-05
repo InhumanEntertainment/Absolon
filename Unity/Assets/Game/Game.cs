@@ -184,25 +184,6 @@ public class Game : MonoBehaviour
 			Audio.PlayMusic("Menu", true);
 		}        
 	}
-
-    //============================================================================================================================================================================================//
-    public void Death()
-    {   
-        Lives--;
-
-        if(Lives < 0)
-        {
-            // Game Over //
-            Time.timeScale = 0;
-            CleanupScene();
-            SetScreen("Game Over");
-        }
-        else
-        {
-            GameText text = (GameObject.Find("Lives") as GameObject).GetComponent<GameText>();
-            text.Text = Lives.ToString();
-        }
-    }
 	
 	//============================================================================================================================================================================================//
 	public void Facebook()
@@ -249,12 +230,65 @@ public class Game : MonoBehaviour
 	public void Play()
 	{
 		print("Frontend: Play");
+
         // Create Player and Level //
-        Lives = 3;
-        Score = 0;
+
+        SetLives(3);
+        SetScore(0);
+
         Time.timeScale = 1;
         SetScreen("Game");
 	}
+
+    //============================================================================================================================================================================================//
+	public void AddScore(int value)
+    {
+        SetScore(Score + value);
+    }
+
+    //============================================================================================================================================================================================//
+    public void SetScore(int value)
+    {
+        Score = value;
+        GameText score = GameObject.Find("Score").GetComponent<GameText>();
+        score.Text = Score.ToString();
+    }
+
+    //============================================================================================================================================================================================//
+    public void SetLives(int value)
+    {
+        Lives = value;
+
+        if (Lives < 0)
+        {
+            // Game Over //
+            Time.timeScale = 0;
+            CleanupScene();
+            SetScreen("Game Over");
+        }
+        else
+        {
+            GameText lives = GameObject.Find("Lives").GetComponent<GameText>();
+            lives.Text = Lives.ToString();
+        }
+    }
+    //============================================================================================================================================================================================//
+    public void Death()
+    {               
+        SetLives(Lives - 1);
+
+        Projectile[] projectiles = GameObject.FindObjectsOfType<Projectile>();
+        foreach(Projectile projectile in projectiles)
+        {
+            Destroy(projectile.gameObject);
+        }
+
+        Buzzer[] buzzers = GameObject.FindObjectsOfType<Buzzer>();
+        foreach (Buzzer buzzer in buzzers)
+        {
+            Destroy(buzzer.gameObject);
+        }
+    }
 	
 	//============================================================================================================================================================================================//
 	// Spawn objects into group so they can be easily cleanup up //

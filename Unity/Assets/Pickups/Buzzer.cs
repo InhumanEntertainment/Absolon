@@ -59,7 +59,7 @@ public class Buzzer : MonoBehaviour
         Velocity += (Acceleration * delta);
         Velocity *= Drag;
 
-        Buffer = new Vector3(Buffer.x + Velocity.x, Buffer.y + Velocity.y, -1);
+        Buffer = new Vector3(Buffer.x + Velocity.x, Buffer.y + Velocity.y, 0);
  
         if (!buffer)
         {
@@ -68,11 +68,11 @@ public class Buzzer : MonoBehaviour
 	}
 
     //=======================================================================================================================================================/
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.collider.tag == "Player")
+        if (collider.tag == "Player")
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     public static Player Instance = null;
     public Weapon Weapon;
     public Vector3 TouchOffset;
+    public ParticleSystem DeathEffect;
 
     float DeathTimeout = 2;
     float DeathStart;
@@ -18,19 +19,30 @@ public class Player : MonoBehaviour
 	}
 
     //======================================================================================================================================//
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawLine(transform.position - TouchOffset, transform.position);
+        Gizmos.DrawWireSphere(transform.position - TouchOffset, 0.05f);
+    }
+
+    //======================================================================================================================================//
     void Update()
     {
-        Weapon.transform.position = transform.position + Weapon.Offset;
-
         // Mouse Down //
         if (Input.GetMouseButton(0))
         {
             Vector3 Mouse = GetMousePosition();
+            Mouse.z = 0;
+
+            if(Input.GetMouseButtonDown(0))
+                TouchOffset = transform.position - Mouse;
 
             transform.position = Mouse + TouchOffset;
             Weapon.transform.position = transform.position + Weapon.Offset;
-
-            Weapon.Fire();
+            
+            if(isAlive)
+                Weapon.Fire();
         }
 
         if(isAlive)
@@ -45,15 +57,14 @@ public class Player : MonoBehaviour
 
             if (amount < DeathTimeout)
             {
-                (renderer as SpriteRenderer).color = Color.red;
+                bool value = (amount * 4 % 1) > 0.5f;
+                (renderer as SpriteRenderer).color = value ? Color.red : new Color(1, 0, 0, 0.1f);
             }
             else
             {
                 isAlive = true;
                 (renderer as SpriteRenderer).color = Color.white;
-            }
-
-            
+            }       
         }
 	}
 
@@ -74,9 +85,16 @@ public class Player : MonoBehaviour
         {
             //Destroy(this.gameObject);
             // Play Effect //
+            if (DeathEffect)
+                Game.Spawn(DeathEffect, transform.position);
 
             isAlive = false;
             DeathStart = Time.timeSinceLevelLoad;
+
+            // Reset Weapon //
+            Destroy(Weapon.gameObject);
+            Weapon = (Weapon)Game.Spawn(Game.Instance.Weapons[0]);
+            
             Game.Instance.Death();
         }
     }

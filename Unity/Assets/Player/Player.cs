@@ -5,12 +5,17 @@ public class Player : MonoBehaviour
 {
     public static Player Instance = null;
     public Weapon Weapon;
+    public Bomb Bomb;
     public Vector3 TouchOffset;
     public ParticleSystem DeathEffect;
 
     float DeathTimeout = 2;
     float DeathStart;
     public bool isAlive = true;
+
+    public float TapTime;
+    public int TapCount = 0;
+    float TapDuration = 0.2f;
 
     //======================================================================================================================================//
     void Awake()
@@ -35,8 +40,24 @@ public class Player : MonoBehaviour
             Vector3 Mouse = GetMousePosition();
             Mouse.z = 0;
 
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
+            {
                 TouchOffset = transform.position - Mouse;
+
+                if (Time.realtimeSinceStartup - TapTime < TapDuration)
+                {
+                    TapCount++;
+                    if(TapCount == 1)
+                    {
+                        Game.Spawn(Bomb, transform.position);
+                        TapCount = 0;
+                        TapTime = 0;
+                    }
+                }
+
+                TapTime = Time.realtimeSinceStartup;
+                
+            }
 
             transform.position = Mouse + TouchOffset;
             Weapon.transform.position = transform.position + Weapon.Offset;
@@ -93,7 +114,7 @@ public class Player : MonoBehaviour
 
             // Reset Weapon //
             Destroy(Weapon.gameObject);
-            Weapon = (Weapon)Game.Spawn(Game.Instance.Weapons[0]);
+            Weapon = (Weapon)Instantiate(Game.Instance.Weapons[0]);
             
             Game.Instance.Death();
         }

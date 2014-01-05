@@ -13,22 +13,24 @@ public class WeaponSpread : Weapon
     //=======================================================================================================================================================/
     void Update()
     {
-        // Sine Wave //
-        //WaveOffset = (float)(Mathf.Cos(Time.timeSinceLevelLoad / SpreadWavelength) * 1);
+        if(Time.timeScale == 1)
+        {
+            // Sine Wave //
+            //WaveOffset = (float)(Mathf.Cos(Time.timeSinceLevelLoad / SpreadWavelength) * 1);
 
-        // Ship Velocity //
-        float newVal = (Player.Instance.transform.position.x - LastPosition.x) / Time.deltaTime * 1f;
-        float v = Time.deltaTime * 10f;
-        SpreadValue = SpreadValue * (1f - v) + newVal * v;
-        Spread = SpreadValue + (float)(Random.value * .2f) - .1f;
+            // Ship Velocity //
+            float newVal = (Player.Instance.transform.position.x - LastPosition.x) / Time.deltaTime * 1f;
+            float v = Time.deltaTime * 10f;
+            SpreadValue = SpreadValue * (1f - v) + newVal * v;
+            Spread = SpreadValue + (float)(Random.value * .2f) - .1f;
 
-        if (Spread > 2)
-            Spread = 2;
-        if (Spread < -2)
-            Spread = -2;
+            if (Spread > 2)
+                Spread = 2;
+            if (Spread < -2)
+                Spread = -2;
 
-        LastPosition = Player.Instance.transform.position;
-
+            LastPosition = Player.Instance.transform.position;
+        }
     }
 
     //=======================================================================================================================================================/

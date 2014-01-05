@@ -16,7 +16,7 @@ public class Pickup : MonoBehaviour
             Destroy(player.Weapon.gameObject);
             // Destroy(gameObject)
 
-            player.Weapon = (Weapon)Game.Spawn(Weapon);
+            player.Weapon = (Weapon)Instantiate(Weapon);
         }
     }
 }

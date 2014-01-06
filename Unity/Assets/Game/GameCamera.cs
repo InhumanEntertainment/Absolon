@@ -66,6 +66,7 @@ public class GameCamera : MonoBehaviour
     public float ScreenAspect;
     public float TargetAspect;
 
+    //============================================================================================================================================================================================//
     void Update()
 	{
         ScreenAspect = Screen.width / (float)Screen.height;

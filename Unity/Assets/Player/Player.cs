@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     public int TapCount = 0;
     float TapDuration = 0.2f;
 
+    // Joystick //
+    public float JoystickSpeed = 2;
+
     //======================================================================================================================================//
     void Awake()
     {
@@ -34,7 +37,26 @@ public class Player : MonoBehaviour
     //======================================================================================================================================//
     void Update()
     {
-        // Mouse Down //
+        // OUYA //
+        //OuyaController controller = new OuyaController();
+        //var buttons = controller.GetSupportedButtons();
+        //print(controller.GetAxisInverted(OuyaSDK.KeyEnum.AXIS_LSTICK_X);
+        //string joystick_x = controller.GetUnityAxisName(OuyaSDK.KeyEnum.AXIS_LSTICK_X,OuyaSDK.OuyaPlayer.player1);
+        //print(joystick_x + ": " + OuyaExampleCommon.GetAxis(OuyaSDK.KeyEnum.AXIS_LSTICK_X, OuyaSDK.OuyaPlayer.player1));
+        //print(OuyaExampleCommon.GetAxis(OuyaSDK.KeyEnum.BUTTON_O, OuyaSDK.OuyaPlayer.player1));
+        //if ( && isAlive)
+        //    Weapon.Fire();
+
+        // Joystick Controls //
+        Vector3 joystickAxis = new Vector3(Input.GetAxis("Joy1 Axis 1"), -Input.GetAxis("Joy1 Axis 2"), 0);
+        transform.position += joystickAxis * JoystickSpeed * Time.deltaTime;
+
+        if(Input.GetAxis("Fire1") > 0.5f && isAlive)
+        {
+            Weapon.Fire();
+        }
+
+        // Tocuh Controls //
         if (Input.GetMouseButton(0))
         {
             Vector3 Mouse = GetMousePosition();
@@ -55,16 +77,30 @@ public class Player : MonoBehaviour
                     }
                 }
 
-                TapTime = Time.realtimeSinceStartup;
-                
+                TapTime = Time.realtimeSinceStartup;                
             }
 
-            transform.position = Mouse + TouchOffset;
-            Weapon.transform.position = transform.position + Weapon.Offset;
+            // Screen Bounds //
+            float borderx = 0.15f;
+            float bordery = 0.10f;
+            float xbound = (Camera.main.orthographicSize - borderx) * Camera.main.aspect;
+            float ybound = (Camera.main.orthographicSize - bordery);
+            
+            Mouse.x = Mathf.Clamp(Mouse.x, -xbound, xbound);
+            Mouse.y = Mathf.Clamp(Mouse.y, -ybound, ybound);
+
+            Vector3 targetPosition = Mouse + TouchOffset;
+            targetPosition.x = Mathf.Clamp(targetPosition.x, -xbound, xbound);
+            targetPosition.y = Mathf.Clamp(targetPosition.y, -ybound, ybound);
+        
+            TouchOffset = targetPosition - Mouse;
+            transform.position = Mouse + TouchOffset;          
             
             if(isAlive)
                 Weapon.Fire();
         }
+
+        Weapon.transform.position = transform.position + Weapon.Offset;
 
         if(isAlive)
         {

@@ -302,5 +302,14 @@ TextureImporter:
         height: 64
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: Lives
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 10
+        width: 13
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
   spritePackingTag: 
   userData: 

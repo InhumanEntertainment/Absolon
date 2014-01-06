@@ -140,4 +140,10 @@ public class GameCamera : MonoBehaviour
             while (remainder > 0);
         }
     }*/
+
+    //============================================================================================================================================//
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(Vector3.zero, new Vector3(Camera.main.rect.width * Camera.main.orthographicSize * ScreenAspect * 2, Camera.main.rect.height * Camera.main.orthographicSize * 2, 0));
+    }
 }

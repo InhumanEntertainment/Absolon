@@ -20,6 +20,8 @@ public class Game : MonoBehaviour
 	public GameScreen[] Screens;
 	public GameScreen CurrentScreen;
 	public GameScreen LastScreen;
+
+    public Transform[] LifeObjects;
 	
 	// Data //
 	//public MutationData Data;
@@ -29,6 +31,7 @@ public class Game : MonoBehaviour
 	// Gameplay //
     public int Lives = 3;
     public int Score = 0;
+    float SmoothScore = 0;
     public int Bombs = 5;
     public Weapon[] Weapons; 
 	
@@ -72,8 +75,13 @@ public class Game : MonoBehaviour
 		}
 		
 		// Update FPS Counter //
-		FPS = Mathf.Lerp(FPS, Time.deltaTime > 0 ? 1f / Time.deltaTime : 0, 0.03f);    
-	}
+		FPS = Mathf.Lerp(FPS, Time.deltaTime > 0 ? 1f / Time.deltaTime : 0, 0.03f);   
+ 
+        if(CurrentScreen.Name == "Game")
+        {
+            UpdateScore(); 
+        }
+	}   
 	
 	//============================================================================================================================================================================================//
 	public void CleanupScene()
@@ -233,7 +241,7 @@ public class Game : MonoBehaviour
 
         // Create Player and Level //
 
-        SetLives(3);
+        SetLives(5);
         SetScore(0);
 
         Time.timeScale = 1;
@@ -251,7 +259,16 @@ public class Game : MonoBehaviour
     {
         Score = value;
         GameText score = GameObject.Find("Score").GetComponent<GameText>();
-        score.Text = Score.ToString();
+        score.Text = string.Format("{0:n0}", SmoothScore);
+    }
+
+    //============================================================================================================================================================================================//
+    public void UpdateScore()
+    {
+        SmoothScore = SmoothScore * 0.8f + Score * 0.2f;
+
+        GameText score = GameObject.Find("Score").GetComponent<GameText>();
+        score.Text = string.Format("{0:n0}", SmoothScore);
     }
 
     //============================================================================================================================================================================================//
@@ -268,10 +285,13 @@ public class Game : MonoBehaviour
         }
         else
         {
-            GameText lives = GameObject.Find("Lives").GetComponent<GameText>();
-            lives.Text = Lives.ToString();
+            for (int i = 0; i < LifeObjects.Length; i++)
+            {
+                LifeObjects[i].gameObject.SetActive(i < Lives);
+            }
         }
     }
+
     //============================================================================================================================================================================================//
     public void Death()
     {               

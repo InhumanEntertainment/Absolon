@@ -13,9 +13,6 @@ public class Spawner : MonoBehaviour
     public Random Rand;
     bool FirstRun = true;
 
-    public Rect SpawnLocation;
-
-
     //=======================================================================================================================================================/
     void Start()
     {
@@ -34,7 +31,6 @@ public class Spawner : MonoBehaviour
             if (Time.timeSinceLevelLoad > NextSpawnTime)
             {
                 NextSpawnTime = Time.timeSinceLevelLoad + GetRandomTime();
-
                 Create();
             }
         }
@@ -56,10 +52,16 @@ public class Spawner : MonoBehaviour
     //=======================================================================================================================================================/
     public Vector3 GetStartPosition()
     {
-        double x = Random.value * (SpawnLocation.width) + SpawnLocation.xMin;
-        double y = Random.value * (SpawnLocation.height) + SpawnLocation.yMin;
+        double x = Random.value * transform.localScale.x - transform.localScale.x * 0.5f + transform.position.x;
+        double y = Random.value * transform.localScale.y - transform.localScale.y * 0.5f + transform.position.y;
 
         return new Vector3((float)x, (float)y, 0);
     }
 
+    //=======================================================================================================================================================/
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, transform.localScale);
+    }
 }

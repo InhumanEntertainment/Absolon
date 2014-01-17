@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Buzzer : MonoBehaviour 
 {
-    Vector3 Velocity;
+    public Vector3 Velocity;
     Vector3 Acceleration;
     public Vector3 Target;
     Vector3 OldTarget;
@@ -72,6 +72,7 @@ public class Buzzer : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
+            Game.Instance.AddEnergy(1);
             Destroy(gameObject);
         }
     }

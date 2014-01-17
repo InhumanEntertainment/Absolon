@@ -5,7 +5,6 @@ public class Player : MonoBehaviour
 {
     public static Player Instance = null;
     public Weapon Weapon;
-    public Bomb Bomb;
     public Vector3 TouchOffset;
     public ParticleSystem DeathEffect;
 
@@ -71,7 +70,7 @@ public class Player : MonoBehaviour
                     TapCount++;
                     if(TapCount == 1)
                     {
-                        Game.Spawn(Bomb, transform.position);
+                        Game.Instance.ActivateBomb();
                         TapCount = 0;
                         TapTime = 0;
                     }

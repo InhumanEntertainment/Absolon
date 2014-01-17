@@ -6,20 +6,19 @@ public class Trail : MonoBehaviour
 {
     public List<Vector3> Tail = new List<Vector3>();
     Mesh mesh;
+    MeshFilter Filter;
     public Vector3 Target = Vector3.up;
     public int TailMax = 50;
     public float TailWidthStart = 1f;
-    public float TailWidthEnd = 1f;
-    public bool DrawWireframe = false;
-
-    float DistanceTraveled = 0;
-    public float StepSpacing = 0.25f;
+    public float TailWidthEnd = 1f;    
 
     //============================================================================================================================================//
     void Awake()
     {
         mesh = new Mesh();
         Tail.Add(transform.position);
+        Filter = GetComponent<MeshFilter>();
+        Filter.mesh = mesh;   
     }
 
     //============================================================================================================================================//
@@ -27,42 +26,14 @@ public class Trail : MonoBehaviour
     {
         if (Time.timeScale == 1)
         {
-            //if (Input.GetMouseButton(0))
-            //{
-            Target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Target.z = 0;
             Target = transform.position;
-
-            Debug.DrawLine(Target, transform.position, Color.black);
-
-            Vector3 vec = Target - transform.position;
-            vec.Normalize();
             float distance = Vector3.Distance(Target, transform.position);
-
             Vector3 prevposition = Tail[Tail.Count - 1];
-            DistanceTraveled = Vector3.Distance(Target, prevposition);
-
-            /*if (DistanceTraveled > StepSpacing)
-            {
-                int steps = (int)(DistanceTraveled / StepSpacing);
-                for (int i = 0; i < steps; i++)
-                {
-                    float delta = (float)(i + 1) / steps;
-                    Vector3 pos = prevposition * (1 - delta) + Target * delta;
-
-                    Tail.Add(pos);
-                    if (Tail.Count > TailMax)
-                        Tail.RemoveRange(0, Tail.Count - TailMax);
-
-                    DistanceTraveled -= StepSpacing;
-                }
-            }*/
 
             Tail.Add(Target);
             if (Tail.Count > TailMax)
                 Tail.RemoveRange(0, Tail.Count - TailMax);
 
-            //}
         }
            
         BuildMesh();
@@ -105,13 +76,11 @@ public class Trail : MonoBehaviour
                 float v = 1 - ((float)i / (Tail.Count - 1));
                 float tailwidth = Mathf.Lerp(TailWidthStart, TailWidthEnd, v);
 
-                vertices[i * 2] = Tail[i] + left * tailwidth;
-                vertices[i * 2 + 1] = Tail[i] + right * tailwidth;
+                vertices[i * 2] = Tail[i] + left * tailwidth - transform.position;
+                vertices[i * 2 + 1] = Tail[i] + right * tailwidth - transform.position;
 
                 uv[i * 2] = new Vector2(0, v * 1);
                 uv[i * 2 + 1] = new Vector2(1, v * 1);
-
-                //Debug.DrawLine(Tail[i] + left, Tail[i] + right, Color.blue);
             }
 
             // Generate Triangles //
@@ -129,26 +98,12 @@ public class Trail : MonoBehaviour
                 triangles[i * 6 + 3] = t3;
                 triangles[i * 6 + 4] = t2;
                 triangles[i * 6 + 5] = t4;
-
-                // Draw Wireframe //
-                if (DrawWireframe)
-                {
-                    Debug.DrawLine(vertices[t1], vertices[t2], Color.black);
-                    Debug.DrawLine(vertices[t3], vertices[t4], Color.black);
-                    Debug.DrawLine(vertices[t1], vertices[t3], Color.black);
-                    Debug.DrawLine(vertices[t2], vertices[t4], Color.black);
-                }
             }
-
-            // Draw Tail Mesh //           
-            mesh.Clear();
+         
+            //mesh.Clear();
             mesh.vertices = vertices;
             mesh.uv = uv;
             mesh.triangles = triangles;
-
-            //MeshFilter m = GetComponent<MeshFilter>();
-            //m.mesh = mesh;       
-            Graphics.DrawMesh(mesh, Matrix4x4.identity, renderer.material, 0);
         }
     }
 }

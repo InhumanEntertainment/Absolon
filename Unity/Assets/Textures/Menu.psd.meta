@@ -54,24 +54,6 @@ TextureImporter:
         height: 480
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: Pause Background
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 120
-        width: 240
-        height: 480
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: Play
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 64
-        width: 116
-        height: 52
-      alignment: 0
-      pivot: {x: .5, y: .5}
     - name: Twitter
       rect:
         serializedVersion: 2
@@ -111,47 +93,56 @@ TextureImporter:
     - name: About Background
       rect:
         serializedVersion: 2
-        x: 480
+        x: 0
         y: 120
         width: 240
         height: 480
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: Back
+    - name: Box 1
       rect:
         serializedVersion: 2
-        x: 317
-        y: 64
-        width: 116
-        height: 52
+        x: 56
+        y: 49
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: GameOver Background
+    - name: Box 2
       rect:
         serializedVersion: 2
-        x: 720
+        x: 65
+        y: 42
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Box 3
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 41
+        width: 28
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Background
+      rect:
+        serializedVersion: 2
+        x: 240
         y: 120
         width: 240
         height: 480
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: Play Over
+    - name: Energy Bar
       rect:
         serializedVersion: 2
-        x: 138
-        y: 0
-        width: 116
-        height: 52
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: Play Down
-      rect:
-        serializedVersion: 2
-        x: 266
-        y: 0
-        width: 116
-        height: 52
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 38
+        y: 34
+        width: 1
+        height: 1
+      alignment: 1
+      pivot: {x: 0, y: 1}
   spritePackingTag: 
   userData: 

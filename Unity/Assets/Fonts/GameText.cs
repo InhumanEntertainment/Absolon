@@ -28,6 +28,32 @@ public class GameText : MonoBehaviour
     public string SortingLayer;
     public int SortingOrder;
 
+    public enum AnchorPoint
+    {
+        TopLeft,
+        TopCenter,
+        TopRight,
+        MiddleLeft,
+        MiddleCenter,
+        MiddleRight,
+        BottomLeft,
+        BottomCenter,
+        BottomRight
+    }
+
+    public AnchorPoint Location = AnchorPoint.MiddleCenter;
+    Vector3[] Vectors = 
+	{
+		new Vector3(0, 1, 0),
+		new Vector3(0.5f, 1, 0),
+		new Vector3(1, 1, 0),
+		new Vector3(0, 0.5f, 0),
+		new Vector3(0.5f, 0.5f, 0),
+		new Vector3(1, 0.5f, 0),
+		new Vector3(0, 0, 0),
+		new Vector3(0.5f, 0, 0),
+		new Vector3(1, 0, 0),
+	};
 
     //============================================================================================================================================//
     void Awake()

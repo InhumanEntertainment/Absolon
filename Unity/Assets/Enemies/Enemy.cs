@@ -11,12 +11,27 @@ public class Enemy : MonoBehaviour
     public int SpawnCount = 1;
 
     Color DamageColor;
+    Color PreviousDamageColor;
+    bool KillMe = false;
 
     //======================================================================================================================================//
-    public void Update()
+    public void FixedUpdate()
     {
+        if(PreviousDamageColor == Color.red)
+            DamageColor = Color.white;
+
         (renderer as SpriteRenderer).color = DamageColor;
+        PreviousDamageColor = DamageColor;
         DamageColor = Color.white;
+    }
+
+    //======================================================================================================================================//
+    public void LateUpdate()
+    {
+        if (KillMe)
+        {
+            DestroyImmediate(gameObject);
+        }
     }
     
     //======================================================================================================================================//
@@ -47,24 +62,21 @@ public class Enemy : MonoBehaviour
             GameObject obj = (GameObject)Game.Spawn(SpawnObject, pos, Quaternion.identity);
         }
 
-        Destroy(gameObject);
+        KillMe = true;
     }
 
     //=======================================================================================================================================================/
 	void OnBecameInvisible() 
 	{
-		Destroy (gameObject);
+		Destroy(gameObject);
 	}
 
     //=======================================================================================================================================================/
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Projectile")
+        if (collision.collider.tag == "Player")
         {
-            ApplyDamage(10);
-
-            // Play Effect //
+            ApplyDamage(1000);
         }
     }
-
 }

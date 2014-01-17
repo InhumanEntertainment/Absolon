@@ -22,8 +22,6 @@ public class Spinner : Enemy
 	//=======================================================================================================================================================/
 	void Update () 
 	{
-        base.Update();
-
 		transform.position += Vector3.down * Speed * Time.deltaTime;
         transform.Rotate(Vector3.forward, Time.deltaTime * RotationSpeed);
 

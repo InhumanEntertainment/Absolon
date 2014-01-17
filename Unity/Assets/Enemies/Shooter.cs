@@ -10,8 +10,6 @@ public class Shooter : Enemy
     //=======================================================================================================================================================/
     void Update()
     {
-        base.Update();
-
         GameObject player = (GameObject)GameObject.FindGameObjectWithTag("Player");
         transform.position -= Direction * Speed * Time.deltaTime;
 

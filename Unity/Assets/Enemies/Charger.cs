@@ -23,8 +23,6 @@ public class Charger : Enemy
 	//=======================================================================================================================================================/
 	void Update () 
 	{
-        base.Update();
-
 		float time = Time.time - StartTime;
 		GameObject player = (GameObject)GameObject.FindGameObjectWithTag("Player");
 

@@ -8,9 +8,17 @@ public class Game : MonoBehaviour
 	static public Game Instance;	
 	public int TargetFramerate = 60;
 	float FPS = 60;
-	
+
+    // Data //
+    public GameData Data;
+    public GameText HighScoreText;
+
+    // Blocks //
+    public GameObject[] Blocks;
+    public int CurrentBlock;
+
 	// Levels //
-	public Level[] Levels;
+    public Level[] Levels;
 	public string CurrentLevel;
 	public bool LoadingLevel;
 	public AsyncOperation Async;
@@ -20,7 +28,6 @@ public class Game : MonoBehaviour
 	public GameScreen[] Screens;
 	public GameScreen CurrentScreen;
 	public GameScreen LastScreen;
-
     public Transform[] LifeObjects;
 	
 	// Data //
@@ -31,9 +38,23 @@ public class Game : MonoBehaviour
 	// Gameplay //
     public int Lives = 3;
     public int Score = 0;
+    public GameText ScoreText;
     float SmoothScore = 0;
-    public int Bombs = 5;
-    public Weapon[] Weapons; 
+    public Weapon[] Weapons;
+    Player Player;
+    public GameOver GameOverObject;
+
+    // Energy //
+    public int EnergyCount = 0;
+    public int EnergyPerBomb = 100;
+    public SpriteRenderer EnergyBar;
+   
+    // Bombs //
+    public int InitialBombCount = 3;
+    public int BombCount = 3;
+    public ParticleSystem NewBombEffect;
+    public GameText BombText;
+    public Bomb BombObject;
 	
 	//============================================================================================================================================================================================//
 	void Awake()
@@ -48,6 +69,9 @@ public class Game : MonoBehaviour
 			{
 				CurrentScreen = Screens[0];
 			}
+
+            Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            SetHighScore();
 			
 			//Data = MutationData.Load();
 			
@@ -128,8 +152,76 @@ public class Game : MonoBehaviour
 	{
 		SetScreen(GetScreen(name));
 	}
-	
-	//============================================================================================================================================================================================//
+
+
+
+
+
+    //============================================================================================================================================================================================//
+    public void AddEnergy(int value)
+    {
+        SetEnergy(EnergyCount + value);
+    }
+
+    //============================================================================================================================================================================================//
+    public void SetEnergy(int value)
+    {
+        EnergyCount = value;
+
+        if(EnergyCount > EnergyPerBomb)
+        {
+            EnergyCount -= EnergyPerBomb;
+            EnergyCount = 0;
+            SetBombs(BombCount + 1);
+            Game.Spawn(BombObject, BombText.transform.position);
+        }
+
+        // Update Energy UI //
+        EnergyBar.transform.localScale = new Vector3(EnergyCount / (float)EnergyPerBomb * 76, 1, 1);
+    }
+
+    //============================================================================================================================================================================================//
+    public void SetBombs(int value)
+    {
+        BombCount = value;
+
+        // Update Bomb UI //
+        BombText.Text = BombCount.ToString();
+
+        // Play Effect //
+        NewBombEffect.Play();
+    }
+
+    //============================================================================================================================================================================================//
+    public void ActivateBomb()
+    {
+        if(BombCount > 0)
+        {
+            BombCount--;
+            SetBombs(BombCount);
+            Game.Spawn(BombObject, Player.transform.position);
+        }
+    }
+
+
+
+
+    //============================================================================================================================================================================================//
+    public void NextLevel()
+    {
+        CleanupScene();
+        Blocks[CurrentBlock].SetActive(false);
+
+        CurrentBlock++;
+        if(CurrentBlock >= Blocks.Length)
+            CurrentBlock = 0;
+
+        Blocks[CurrentBlock].SetActive(true);
+        GameText level = GameObject.Find("LevelText").GetComponent<GameText>();
+        level.Text = Blocks[CurrentBlock].name.ToLower();
+    }
+    
+    //============================================================================================================================================================================================//
 	public void About()
 	{
 		print("Frontend: About");
@@ -156,10 +248,13 @@ public class Game : MonoBehaviour
 	//============================================================================================================================================================================================//
 	public void GameOver()
 	{
-		SetScreen("GameOver");
-		Time.timeScale = 0f;
-		Audio.Music.Stop();
-		Audio.PlaySound("Game Over");
+        //Time.timeScale = 0;
+        CleanupScene();
+        SetHighScore();
+        //Audio.PlaySound("Game Over");
+
+        SetScreen("Game Over");
+        GameOverObject.Play();
 	}
 	
 	//============================================================================================================================================================================================//
@@ -243,6 +338,8 @@ public class Game : MonoBehaviour
 
         SetLives(5);
         SetScore(0);
+        SetEnergy(0);
+        SmoothScore = 0;
 
         Time.timeScale = 1;
         SetScreen("Game");
@@ -258,17 +355,26 @@ public class Game : MonoBehaviour
     public void SetScore(int value)
     {
         Score = value;
-        GameText score = GameObject.Find("Score").GetComponent<GameText>();
-        score.Text = string.Format("{0:n0}", SmoothScore);
+        ScoreText.Text = string.Format("{0:n0}", SmoothScore);
+    }
+
+    //============================================================================================================================================================================================//
+    public void SetHighScore()
+    {
+        if (Score > Data.HighScore)
+        {
+            Data.HighScore = Score;
+            print("New High Score: " + Score.ToString());
+        }
+
+        HighScoreText.Text = string.Format("{0:n0}", Data.HighScore);        
     }
 
     //============================================================================================================================================================================================//
     public void UpdateScore()
     {
         SmoothScore = SmoothScore * 0.8f + Score * 0.2f;
-
-        GameText score = GameObject.Find("Score").GetComponent<GameText>();
-        score.Text = string.Format("{0:n0}", SmoothScore);
+        ScoreText.Text = string.Format("{0:n0}", SmoothScore);
     }
 
     //============================================================================================================================================================================================//
@@ -278,10 +384,7 @@ public class Game : MonoBehaviour
 
         if (Lives < 0)
         {
-            // Game Over //
-            Time.timeScale = 0;
-            CleanupScene();
-            SetScreen("Game Over");
+            GameOver();
         }
         else
         {

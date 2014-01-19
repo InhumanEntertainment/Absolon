@@ -41,7 +41,7 @@ public class Game : MonoBehaviour
     public GameText ScoreText;
     float SmoothScore = 0;
     public Weapon[] Weapons;
-    Player Player;
+    public Player Player;
     public GameOver GameOverObject;
 
     // Energy //
@@ -55,6 +55,17 @@ public class Game : MonoBehaviour
     public ParticleSystem NewBombEffect;
     public GameText BombText;
     public Bomb BombObject;
+
+    // Difficulty //
+    public float DifficultyAcceleration = 1;
+    public float Difficulty = 0;
+    public float DifficultyVelocityMax = 0.1f;
+    public int DifficultyLineLength = 500;
+
+    float DifficultyVelocity = 0;
+    float DifficultyMin = 0;
+    float DifficultyMax = 1;
+    List<float> DifficultyLine = new List<float>();  
 	
 	//============================================================================================================================================================================================//
 	void Awake()
@@ -67,7 +78,7 @@ public class Game : MonoBehaviour
 			
 			if(Screens.Length > 0)
 			{
-				CurrentScreen = Screens[0];
+                SetScreen("Game");
 			}
 
             Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -103,9 +114,66 @@ public class Game : MonoBehaviour
  
         if(CurrentScreen.Name == "Game")
         {
-            UpdateScore(); 
+            UpdateScore();
+
+            // Difficulty Ramp //
+            DifficultyVelocity += (Random.value * DifficultyAcceleration - (DifficultyAcceleration * 0.5f));
+            if (Mathf.Abs(DifficultyVelocity) > DifficultyVelocityMax)
+            {
+                DifficultyVelocity = Mathf.Sign(DifficultyVelocity) * DifficultyVelocityMax;
+            }
+
+            Difficulty += DifficultyVelocity * Time.deltaTime;
+            if (Difficulty < DifficultyMin)
+            {
+                Difficulty = DifficultyMin;
+                DifficultyVelocity *= 0.95f;
+            }
+
+            if (Difficulty > DifficultyMax)
+            {
+                DifficultyMax = Difficulty;
+                DifficultyMin = DifficultyMax * 0.25f;
+                DifficultyMin = Mathf.Max(0, DifficultyMin);
+                DifficultyVelocity *= 0.95f;
+            }
         }
-	}   
+	}
+
+    //============================================================================================================================================================================================//
+    void OnDrawGizmos()
+    {
+        if(Application.isPlaying)
+        {
+            // Draw Bounds //
+            Gizmos.color = Color.white;
+            Vector3 TopLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 101));
+            Vector3 BottomRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0));
+            Vector3 Minimum = Camera.main.ScreenToWorldPoint(new Vector3(0, DifficultyMin / DifficultyMax * 101, 0));
+            Gizmos.DrawLine(new Vector3(TopLeft.x, TopLeft.y, 0), new Vector3(BottomRight.x, TopLeft.y, 0));
+            Gizmos.DrawLine(new Vector3(TopLeft.x, BottomRight.y, 0), new Vector3(BottomRight.x, BottomRight.y, 0));
+            Gizmos.DrawLine(new Vector3(TopLeft.x, Minimum.y, 0), new Vector3(BottomRight.x, Minimum.y, 0));
+
+            // Draw Graph //
+            Gizmos.color = Color.cyan;          
+            DifficultyLine.Insert(0, Difficulty);
+            if (DifficultyLine.Count > DifficultyLineLength)
+                DifficultyLine.RemoveRange(DifficultyLineLength, DifficultyLine.Count - DifficultyLineLength);
+        
+            Vector3 To = Vector3.zero;
+            for (int i = 0; i < DifficultyLine.Count; i++)
+            {
+                Vector3 From = new Vector3((DifficultyLineLength - 1 - i) / (float)DifficultyLineLength * Screen.width, DifficultyLine[i] / DifficultyMax * 100, 0);
+                From = Camera.main.ScreenToWorldPoint(From);
+                From.z = 0;
+                if (i == 0)
+                    To = From;
+
+                Gizmos.DrawLine(From, To);
+                To = From;
+            }
+        }
+    }
 	
 	//============================================================================================================================================================================================//
 	public void CleanupScene()
@@ -135,7 +203,7 @@ public class Game : MonoBehaviour
 	}
 	
 	//============================================================================================================================================================================================//
-	void SetScreen(GameScreen screen)
+	public void SetScreen(GameScreen screen)
 	{
 		print("Set Screen: " + screen.Name);
 		
@@ -148,7 +216,7 @@ public class Game : MonoBehaviour
 		}
 	}
 	
-	void SetScreen(string name)
+	public void SetScreen(string name)
 	{
 		SetScreen(GetScreen(name));
 	}
@@ -173,7 +241,7 @@ public class Game : MonoBehaviour
             EnergyCount -= EnergyPerBomb;
             EnergyCount = 0;
             SetBombs(BombCount + 1);
-            Game.Spawn(BombObject, BombText.transform.position);
+            Game.Spawn(NewBombEffect, BombText.transform.position);
         }
 
         // Update Energy UI //
@@ -217,8 +285,8 @@ public class Game : MonoBehaviour
             CurrentBlock = 0;
 
         Blocks[CurrentBlock].SetActive(true);
-        GameText level = GameObject.Find("LevelText").GetComponent<GameText>();
-        level.Text = Blocks[CurrentBlock].name.ToLower();
+        //GameText level = GameObject.Find("LevelText").GetComponent<GameText>();
+        //level.Text = Blocks[CurrentBlock].name.ToLower();
     }
     
     //============================================================================================================================================================================================//

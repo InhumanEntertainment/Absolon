@@ -14,6 +14,6 @@ public class Fps : MonoBehaviour
 
         string fps = FPS.ToString("n2");
         GameText text = GetComponent<GameText>();
-        text.Text = fps;	
+        text.Text = fps + " : " + Game.Instance.Difficulty.ToString("N2");	
 	}
 }

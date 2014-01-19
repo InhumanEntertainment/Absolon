@@ -24,14 +24,13 @@ public class Charger : Enemy
 	void Update () 
 	{
 		float time = Time.time - StartTime;
-		GameObject player = (GameObject)GameObject.FindGameObjectWithTag("Player");
+        GameObject player = Game.Instance.Player.gameObject;
 
-        Player playera = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        if (!playera.isAlive)
+        /*if (!playera.isAlive)
         {
             State = ChargerState.Waiting;
             StartTime = Time.time;
-        }
+        }*/
 
 
 		if(State == ChargerState.Idle)

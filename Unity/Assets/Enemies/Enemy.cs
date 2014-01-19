@@ -4,16 +4,26 @@ using System.Collections;
 public class Enemy : MonoBehaviour 
 {
     public int Health = 100;
+    int StartHealth = 100;
     public int Points = 100;
 
     public ParticleSystem DeathEffect;
     public GameObject SpawnObject;
     public int SpawnCount = 1;
 
+    public Transform HealthObject;
+    public int HealthWidth = 20;
+
     Color DamageColor;
     Color PreviousDamageColor;
     bool KillMe = false;
 
+    //======================================================================================================================================//
+    void Awake()
+    {
+        StartHealth = Health;
+    }
+    
     //======================================================================================================================================//
     public void FixedUpdate()
     {
@@ -40,6 +50,8 @@ public class Enemy : MonoBehaviour
         Health -= amount;
         //print("Damage: " + Health);
         DamageColor = Color.red;
+        if(HealthObject != null)
+            HealthObject.localScale = new Vector3(Health / (float)StartHealth * HealthWidth, 1, 1);
 
         if(Health <= 0)
         {

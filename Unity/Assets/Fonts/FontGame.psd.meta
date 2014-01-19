@@ -1,0 +1,490 @@
+fileFormatVersion: 2
+guid: 16cfcc09fcea135408714cb368b5f675
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: FontGame_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_3
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_5
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_6
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_7
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_8
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_9
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_10
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_11
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_13
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_14
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_15
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_16
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_17
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_18
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_19
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_20
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_21
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_22
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_23
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_24
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_25
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_26
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_27
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_28
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_29
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_30
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_31
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_32
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_33
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_34
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_35
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_36
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_37
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 0
+        width: 4
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_38
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 4
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_39
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 0
+        width: 4
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_40
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 0
+        width: 4
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_41
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 0
+        width: 4
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_42
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_43
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 0
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_44
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 0
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_45
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_46
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_47
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: FontGame_48
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 0
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

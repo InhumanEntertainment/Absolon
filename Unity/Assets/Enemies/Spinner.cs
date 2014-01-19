@@ -8,7 +8,8 @@ public class Spinner : Enemy
     public Projectile Projectile;
     public Vector3[] SpawnOffsets; 
     public float RotationSpeed = 100;
-    public float FireDelay = 0.5f;
+    public float FireDelayEasy = 1f;
+    public float FireDelayHard = 0.2f;
     public float Velocity = 1f;
     public Vector3 Offset = Vector3.zero;
     float LastFireTime;
@@ -35,7 +36,7 @@ public class Spinner : Enemy
     {
         float i = Time.timeSinceLevelLoad - LastFireTime;
 
-        if (LastFireTime != null && i > FireDelay)
+        if (LastFireTime != null && i > Mathf.Lerp(FireDelayEasy, FireDelayHard, Game.Instance.Difficulty))
         {
             CreateProjectile();
 

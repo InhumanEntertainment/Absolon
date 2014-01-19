@@ -5,9 +5,10 @@ public class Spawner : MonoBehaviour
 {
     public GameObject Object;
     public int NumberofEntities;
-    public float MaxTimeStep;
-    public float MinTimeStep;
     public float StartDelay;
+
+    public Vector2 EasyTimeStep = new Vector2(1, 1);
+    public Vector2 HardTimeStep = new Vector2(0.1f, 0.1f);
 
     float NextSpawnTime;
     public Random Rand;
@@ -39,6 +40,9 @@ public class Spawner : MonoBehaviour
     //=======================================================================================================================================================/
     float GetRandomTime()
     {
+        float MinTimeStep = Mathf.Lerp(EasyTimeStep.x, HardTimeStep.x, Game.Instance.Difficulty);
+        float MaxTimeStep = Mathf.Lerp(EasyTimeStep.y, HardTimeStep.y, Game.Instance.Difficulty);
+
         float t = Random.value * (MaxTimeStep - MinTimeStep) + MinTimeStep;
         return t;
     }

@@ -47,6 +47,8 @@ public class GameButton : MonoBehaviour
                         Target.SendMessage(Message, SendMessageOptions.DontRequireReceiver);
                     else
                         SendMessage(Message, SendMessageOptions.DontRequireReceiver);
+
+                    Audio.PlaySound("Button");
                 }
             }
         }

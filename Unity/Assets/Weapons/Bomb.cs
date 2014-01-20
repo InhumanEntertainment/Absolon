@@ -19,6 +19,8 @@ public class Bomb : MonoBehaviour
 
         Player player = FindObjectOfType<Player>();
         transform.position = player.transform.position;
+
+        Audio.PlaySound("Bomb");
     }
 
     //=======================================================================================================================================================/

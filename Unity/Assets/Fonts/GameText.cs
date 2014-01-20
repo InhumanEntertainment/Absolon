@@ -28,31 +28,32 @@ public class GameText : MonoBehaviour
     public string SortingLayer;
     public int SortingOrder;
 
-    public enum AnchorPoint
+    public enum PivotPoint
     {
         TopLeft,
-        TopCenter,
+        Top,
         TopRight,
-        MiddleLeft,
-        MiddleCenter,
-        MiddleRight,
+        Left,
+        Center,
+        Right,
         BottomLeft,
-        BottomCenter,
+        Bottom,
         BottomRight
     }
 
-    public AnchorPoint Location = AnchorPoint.MiddleCenter;
-    Vector3[] Vectors = 
+    public PivotPoint Pivot = PivotPoint.Center;
+    PivotPoint PreviousPivot = PivotPoint.Center;
+    static public Vector3[] PivotVectors = 
 	{
-		new Vector3(0, 1, 0),
-		new Vector3(0.5f, 1, 0),
-		new Vector3(1, 1, 0),
-		new Vector3(0, 0.5f, 0),
-		new Vector3(0.5f, 0.5f, 0),
-		new Vector3(1, 0.5f, 0),
 		new Vector3(0, 0, 0),
 		new Vector3(0.5f, 0, 0),
 		new Vector3(1, 0, 0),
+		new Vector3(0, 0.5f, 0),
+		new Vector3(0.5f, 0.5f, 0),
+		new Vector3(1, 0.5f, 0),
+		new Vector3(0, 1, 0),
+		new Vector3(0.5f, 1, 0),
+		new Vector3(1, 1, 0),
 	};
 
     //============================================================================================================================================//
@@ -71,7 +72,8 @@ public class GameText : MonoBehaviour
 
         if (Font != null)
         {
-            if (PreviousBottomColor != Font.BottomColor || PreviousTopColor != Font.TopColor || Text != PreviousText || Font.Spacing != PreviousSpacing || Font != PreviousFont || PreviousCharacters != Font.Characters)
+            if (PreviousBottomColor != Font.BottomColor || PreviousTopColor != Font.TopColor || Text != PreviousText || Font.Spacing != PreviousSpacing 
+                                                        || Font != PreviousFont || PreviousCharacters != Font.Characters || PreviousPivot != Pivot)
                 CreateMesh();
 
             PreviousText = Text;
@@ -80,6 +82,7 @@ public class GameText : MonoBehaviour
             PreviousCharacters = Font.Characters;
             PreviousTopColor = Font.TopColor;
             PreviousBottomColor = Font.BottomColor;
+            PreviousPivot = Pivot;
 
             //Graphics.DrawMesh(Mesh, transform.localToWorldMatrix, Font.Material, 0);
         }
@@ -129,6 +132,26 @@ public class GameText : MonoBehaviour
             }
         }
 
+        // Measure Text //
+        float text_width = 0;
+        float text_height = 0;
+        for (int i = 0; i < Text.Length; i++)
+        {
+            string letter = Text.Substring(i, 1);
+            if (sprites.ContainsKey(letter))
+            {
+                Sprite sprite = sprites[letter];               
+                text_width += sprite.textureRect.width;
+                if(i < Text.Length - 1)
+                    text_width += Font.Spacing;
+
+                if (sprite.textureRect.height > text_height)
+                    text_height = sprite.textureRect.height;
+            }
+        }
+
+        Vector3 pivot_offet = Vector3.Scale(PivotVectors[(int)Pivot], new Vector3(-text_width, text_height, 0));
+
         // Create Characters //
         float offset = 0;
         index = 0;
@@ -141,10 +164,10 @@ public class GameText : MonoBehaviour
                 Sprite sprite = sprites[letter];
 
                 // Vertices //
-                Vertices.Add(new Vector3(offset, -sprite.textureRect.height, 0) / PixelUnits);
-                Vertices.Add(new Vector3(offset + sprite.textureRect.width, -sprite.textureRect.height, 0) /PixelUnits);
-                Vertices.Add(new Vector3(offset + sprite.textureRect.width, 0, 0) / PixelUnits);
-                Vertices.Add(new Vector3(offset, 0, 0) / PixelUnits);
+                Vertices.Add((pivot_offet + new Vector3(offset, -sprite.textureRect.height, 0)) / PixelUnits);
+                Vertices.Add((pivot_offet + new Vector3(offset + sprite.textureRect.width, -sprite.textureRect.height, 0)) /PixelUnits);
+                Vertices.Add((pivot_offet + new Vector3(offset + sprite.textureRect.width, 0, 0)) / PixelUnits);
+                Vertices.Add((pivot_offet + new Vector3(offset, 0, 0)) / PixelUnits);
 
                 offset += (sprite.textureRect.width + Font.Spacing);
 

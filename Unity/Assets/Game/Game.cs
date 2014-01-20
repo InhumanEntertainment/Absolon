@@ -310,7 +310,7 @@ public class Game : MonoBehaviour
 
 		SetScreen("Pause");
 		Time.timeScale = 0f;
-		//Audio.Music.Pause();
+		Audio.Music.Pause();
 	}
 	
 	//============================================================================================================================================================================================//
@@ -319,7 +319,7 @@ public class Game : MonoBehaviour
         //Time.timeScale = 0;
         CleanupScene();
         SetHighScore();
-        //Audio.PlaySound("Game Over");
+        Audio.PlaySound("Game Over");
 
         SetScreen("Game Over");
         GameOverObject.Play();
@@ -332,7 +332,7 @@ public class Game : MonoBehaviour
 
 		SetScreen("Game");
 		Time.timeScale = 1;
-		//Audio.Music.Play();
+		Audio.Music.Play();
 	}
 	
 	//============================================================================================================================================================================================//
@@ -411,6 +411,7 @@ public class Game : MonoBehaviour
 
         Time.timeScale = 1;
         SetScreen("Game");
+        Audio.PlayMusic("Music", true);
 	}
 
     //============================================================================================================================================================================================//
@@ -479,6 +480,8 @@ public class Game : MonoBehaviour
         {
             Destroy(buzzer.gameObject);
         }
+
+        Audio.PlaySound("Player Death");
     }
 	
 	//============================================================================================================================================================================================//

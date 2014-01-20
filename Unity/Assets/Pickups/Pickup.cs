@@ -30,13 +30,12 @@ public class Pickup : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            Player player = collider.GetComponent<Player>();
-
             // Destroy Weapon //
-            Destroy(player.Weapon.gameObject);
+            Destroy(Game.Instance.Player.Weapon.gameObject);
             Destroy(gameObject);
+            Game.Instance.Player.Weapon = (Weapon)Instantiate(Weapon);
 
-            player.Weapon = (Weapon)Instantiate(Weapon);
+            Audio.PlaySound("Pickup");
         }
     }
 }

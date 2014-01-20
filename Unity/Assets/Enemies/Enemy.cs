@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     Color PreviousDamageColor;
     bool KillMe = false;
 
+    public string DeathSound = "Enemy Death";
+    public string DamageSound = "Enemy Damage";
+
     //======================================================================================================================================//
     void Awake()
     {
@@ -58,6 +61,11 @@ public class Enemy : MonoBehaviour
             Health = 0;
             Game.Instance.AddScore(Points);
             Kill();
+            Audio.PlaySound(DeathSound);
+        }
+        else
+        {
+            Audio.PlaySound(DamageSound);
         }
     }
 

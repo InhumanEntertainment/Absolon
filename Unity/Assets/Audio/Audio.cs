@@ -121,6 +121,7 @@ public class Audio : MonoBehaviour
 			{
 				print("Music: " + song);
 				Music.clip = Audio.Instance.MusicClips[song];
+                Music.Stop();
 				Music.Play();
 			}            
 		}

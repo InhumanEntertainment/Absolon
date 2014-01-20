@@ -37,7 +37,7 @@ public class PlayerTest : MonoBehaviour
 			if(Time.time - LastFire > FireTime)
 			{
 				LastFire = Time.time;
-				GameObject projectile = (GameObject)Game.Spawn(Projectile, PivotPosition, Quaternion.identity);
+                GameObject projectile = (GameObject)Game.Spawn(Projectile, PivotPosition, Quaternion.identity);
 				projectile.rigidbody2D.velocity = new Vector2(direction.x, direction.y) * 3f;
 			}
 		}

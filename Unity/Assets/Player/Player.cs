@@ -165,7 +165,7 @@ public class Player : MonoBehaviour
             // Reset Weapon //
             Destroy(Weapon.gameObject);
             Weapon = (Weapon)Instantiate(Game.Instance.Weapons[0]);
-            
+
             Game.Instance.Death();
         }
     }

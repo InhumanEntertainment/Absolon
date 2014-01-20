@@ -11,7 +11,7 @@ public class GameAnim
     //============================================================================================================================================//
     public void Play()
     {
-        Target.gameObject.SetActiveRecursively(true);
+        Target.gameObject.SetActive(true);
         Target.Play(Animation);
     }
 }

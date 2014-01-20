@@ -13,7 +13,7 @@ public class MenuScreen : MonoBehaviour
     public void About()
     {
         print("Frontend: About");
-        Game.Instance.SetScreen("About");
+        App.Instance.SetScreen("About");
     }
 
     //============================================================================================================================================================================================//
@@ -33,35 +33,10 @@ public class MenuScreen : MonoBehaviour
     }
 
     //============================================================================================================================================================================================//
-    public void GameCenter()
-    {
-        print("Frontend: GameCenter");
-
-        UnityEngine.Social.ShowAchievementsUI();
-    }
-
-    //============================================================================================================================================================================================//
-    public void BuyFullVersion()
-    {
-        print("Frontend: Buy Full Version");
-
-#if UNITY_IPHONE
-		//StoreKitBinding.purchaseProduct("FullVersion", 1);
-#endif
-    }
-
-    //============================================================================================================================================================================================//
-    public void Sycamore()
-    {
-        print("Frontend: Sycamore");
-        Application.OpenURL("http://www.sycamoredrive.co.uk");
-    }
-
-    //============================================================================================================================================================================================//
-    public void Play()
+    public void Game()
     {
         print("Frontend: Play");
-        Game.Instance.SetScreen("Game");
+        App.Instance.SetScreen("Game");
     }
 
 }

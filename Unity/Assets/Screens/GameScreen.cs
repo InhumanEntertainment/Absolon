@@ -10,7 +10,7 @@ public class GameScreen
     public GameAnim[] AnimationsClose;
 
     //============================================================================================================================================//
-    public void Open(Game game)
+    public void Open(App game)
     {
         for (int i = 0; i < AnimationsOpen.Length; i++)
         {
@@ -19,7 +19,7 @@ public class GameScreen
     }
 
     //============================================================================================================================================//
-    public void Close(Game game)
+    public void Close(App game)
     {
         for (int i = 0; i < AnimationsClose.Length; i++)
         {

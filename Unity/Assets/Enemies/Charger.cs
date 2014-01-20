@@ -32,7 +32,6 @@ public class Charger : Enemy
             StartTime = Time.time;
         }*/
 
-
 		if(State == ChargerState.Idle)
 		{
 			if(time > IdleTime)

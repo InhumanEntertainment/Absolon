@@ -26,8 +26,7 @@ public class Spinner : Enemy
 		transform.position += Vector3.down * Speed * Time.deltaTime;
         transform.Rotate(Vector3.forward, Time.deltaTime * RotationSpeed);
 
-        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        if(player.isAlive)
+        if(Player.Instance != null && Player.Instance.isAlive)
             Fire();
 	}
 	

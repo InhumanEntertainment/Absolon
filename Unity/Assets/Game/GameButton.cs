@@ -10,7 +10,8 @@ public class GameButton : MonoBehaviour
     public string Message = "";
     public GameObject Target;
 
-    bool Touching = false;
+    static public bool InUse = false;
+    bool touching = false;
 
     //=======================================================================================================================================================/
     void Update()
@@ -23,11 +24,14 @@ public class GameButton : MonoBehaviour
 
         SpriteRenderer render = renderer as SpriteRenderer;
 
+        if (mouse_over)
+            InUse = true;
+
         if (mouse_over && mouse_touched)
-            Touching = true;       
+            touching = true;
 
         // State //
-        if (Touching && mouse_down && mouse_over)
+        if (touching && mouse_down && mouse_over)
         {
             if (SpriteDown != null) 
                 render.sprite = SpriteDown;        
@@ -38,7 +42,7 @@ public class GameButton : MonoBehaviour
                 render.sprite = SpriteOver;
 
             // Event //
-            if (mouse_released && Touching)
+            if (mouse_released && touching)
             {
                 if (Message != "")
                 {
@@ -54,12 +58,18 @@ public class GameButton : MonoBehaviour
         }
         else if (mouse_released)
         {
-            Touching = false;
+            touching = false;
         }
         else
         {
             if (Sprite != null)
                 render.sprite = Sprite;
         }
+    }
+
+    //=======================================================================================================================================================/
+    void LateUpdate()
+    {
+        InUse = false;
     }
 }

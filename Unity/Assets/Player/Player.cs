@@ -5,9 +5,9 @@ public class Player : MonoBehaviour
 {
     public static Player Instance = null;
     public Weapon Weapon;
+    public Weapon StartWeapon;
     public Vector3 TouchOffset;
     public ParticleSystem DeathEffect;
-    public Collider2D PauseCollider;
 
     float DeathTimeout = 2;
     float DeathStart;
@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        Weapon = Game.Spawn(StartWeapon) as Weapon;
 	}
 
     //======================================================================================================================================//
@@ -61,11 +62,8 @@ public class Player : MonoBehaviour
             Vector3 Mouse = GetMousePosition();
             Mouse.z = 0;
             
-            // Prevent Shooting when Button Pressed //
-            bool is_pausing = PauseCollider.OverlapPoint(Mouse);
-
             // Touch Controls //
-            if (Input.GetMouseButton(0) && !is_pausing)
+            if (Input.GetMouseButton(0) && !GameButton.InUse)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -137,6 +135,10 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            audio.Stop();
+        }
 	}
 
     //======================================================================================================================================//
@@ -161,6 +163,7 @@ public class Player : MonoBehaviour
 
             isAlive = false;
             DeathStart = Time.timeSinceLevelLoad;
+            audio.Stop();
 
             // Reset Weapon //
             Destroy(Weapon.gameObject);

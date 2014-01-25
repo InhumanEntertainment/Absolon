@@ -24,7 +24,7 @@ public class Charger : Enemy
 	void Update () 
 	{
 		float time = Time.time - StartTime;
-        GameObject player = Game.Instance.Player.gameObject;
+        GameObject player = Player.Instance.gameObject;
 
         /*if (!playera.isAlive)
         {

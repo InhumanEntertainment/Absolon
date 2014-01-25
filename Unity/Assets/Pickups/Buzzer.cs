@@ -30,8 +30,11 @@ public class Buzzer : MonoBehaviour
     //============================================================================================================================================//
     void Update()
     {
-        GameObject player = (GameObject)GameObject.FindGameObjectWithTag("Player");
-        Target = player.transform.position;
+        if (Player.Instance != null)
+        {
+            Target = Player.Instance.transform.position;
+        }
+
         Calculate(Time.deltaTime, false);
     }
 

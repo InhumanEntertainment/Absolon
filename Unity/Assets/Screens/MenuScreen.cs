@@ -33,10 +33,11 @@ public class MenuScreen : MonoBehaviour
     }
 
     //============================================================================================================================================================================================//
-    public void Game()
+    public void PlayGame()
     {
         print("Frontend: Play");
         App.Instance.SetScreen("Game");
+        Game.Instance.Play();
     }
 
 }

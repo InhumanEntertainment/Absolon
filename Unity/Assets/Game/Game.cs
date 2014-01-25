@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class Game : MonoBehaviour
 {
     static public Game Instance;
+    public Player PlayerObject;
+    public Vector3 PlayerStartPosition;
 
     // Data //
     public GameData Data;
@@ -12,10 +14,12 @@ public class Game : MonoBehaviour
 
     // Blocks //
     public GameObject[] Blocks;
-    public int CurrentBlock;
+    public GameBlock CurrentBlock;
+    public GameBlock StartBlock;
 
     // Gameplay //
     public int Lives = 3;
+    public GameText LivesText;
     public int Score = 0;
     public GameText ScoreText;
     float SmoothScore = 0;
@@ -35,11 +39,12 @@ public class Game : MonoBehaviour
     public Bomb BombObject;
 
     // Difficulty //
+    float StartTime;
+    public float DifficultyRampDuraction = 60;
     public float DifficultyAcceleration = 1;
     public float Difficulty = 0;
     public float DifficultyVelocityMax = 0.1f;
     public int DifficultyLineLength = 500;
-
     float DifficultyVelocity = 0;
     float DifficultyMin = 0;
     float DifficultyMax = 1;
@@ -53,9 +58,7 @@ public class Game : MonoBehaviour
         // Singleton //
         if (Instance == null)
         {
-            Instance = this;
-            Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
+            Instance = this;          
             SetHighScore();
         }
     }
@@ -74,6 +77,7 @@ public class Game : MonoBehaviour
             UpdateScore();
 
             // Difficulty Ramp //
+            /*
             DifficultyVelocity += (Random.value * DifficultyAcceleration - (DifficultyAcceleration * 0.5f));
             if (Mathf.Abs(DifficultyVelocity) > DifficultyVelocityMax)
             {
@@ -93,7 +97,9 @@ public class Game : MonoBehaviour
                 DifficultyMin = DifficultyMax * 0.25f;
                 DifficultyMin = Mathf.Max(0, DifficultyMin);
                 DifficultyVelocity *= 0.95f;
-            }
+            }*/
+
+            Difficulty = (Time.timeSinceLevelLoad - StartTime) / DifficultyRampDuraction;
         }
     }
 
@@ -109,7 +115,7 @@ public class Game : MonoBehaviour
             Vector3 Minimum = Camera.main.ScreenToWorldPoint(new Vector3(0, DifficultyMin / DifficultyMax * 101, 0));
             Gizmos.DrawLine(new Vector3(TopLeft.x, TopLeft.y, 0), new Vector3(BottomRight.x, TopLeft.y, 0));
             Gizmos.DrawLine(new Vector3(TopLeft.x, BottomRight.y, 0), new Vector3(BottomRight.x, BottomRight.y, 0));
-            Gizmos.DrawLine(new Vector3(TopLeft.x, Minimum.y, 0), new Vector3(BottomRight.x, Minimum.y, 0));
+            //Gizmos.DrawLine(new Vector3(TopLeft.x, Minimum.y, 0), new Vector3(BottomRight.x, Minimum.y, 0));
 
             // Draw Graph //
             Gizmos.color = Color.cyan;
@@ -138,11 +144,19 @@ public class Game : MonoBehaviour
         print("Frontend: Play");
 
         // Create Player and Level //
-
-        SetLives(5);
+        CleanupScene();
+        SetLives(3);
         SetScore(0);
         SetEnergy(0);
+        SetBombs(5);
         SmoothScore = 0;
+        Difficulty = 0;
+        DifficultyMin = 0;
+        DifficultyMax = 1;
+        DifficultyVelocity = 0;
+        Player = (Player)Game.Spawn(PlayerObject, PlayerStartPosition);
+        SetBlock(StartBlock);
+        StartTime = Time.timeSinceLevelLoad;
 
         Time.timeScale = 1;
         App.Instance.SetScreen("Game");
@@ -162,6 +176,8 @@ public class Game : MonoBehaviour
     //============================================================================================================================================================================================//
     public void GameOver()
     {
+        print("GAME OVER!");
+
         Time.timeScale = 0;
         CleanupScene();
         SetHighScore();
@@ -170,16 +186,16 @@ public class Game : MonoBehaviour
     }
 
     //============================================================================================================================================================================================//
-    public void NextLevel()
+    public void SetBlock(GameBlock block)
     {
-        CleanupScene();
-        Blocks[CurrentBlock].SetActive(false);
-
-        CurrentBlock++;
-        if (CurrentBlock >= Blocks.Length)
-            CurrentBlock = 0;
-
-        Blocks[CurrentBlock].SetActive(true);
+        // Remove old spawners //
+        if (CurrentBlock != null)
+        {
+            Destroy(CurrentBlock.gameObject);
+        }
+        
+        // Spawn new Block //
+        CurrentBlock = (GameBlock)Game.Spawn(block);
     }
 
     //============================================================================================================================================================================================//
@@ -208,7 +224,7 @@ public class Game : MonoBehaviour
     public void SetBombs(int value)
     {
         BombCount = value;
-        BombText.Text = BombCount.ToString();
+        BombText.Text = "x" + BombCount.ToString();
         NewBombEffect.Play();
     }
 
@@ -259,17 +275,14 @@ public class Game : MonoBehaviour
     public void SetLives(int value)
     {
         Lives = value;
-
+        
         if (Lives < 0)
         {
             GameOver();
         }
         else
         {
-            for (int i = 0; i < LifeObjects.Length; i++)
-            {
-                LifeObjects[i].gameObject.SetActive(i < Lives);
-            }
+            LivesText.Text = "x" + Lives.ToString();     
         }
     }
 

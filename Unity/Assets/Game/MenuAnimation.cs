@@ -57,16 +57,18 @@ public class MenuAnimation : MonoBehaviour
     public void Play(string name)
     {
         //print("Menu Animation: " + name);
+        if (name != "")
+        {
+            currentState = animation[name];
+            currentState.weight = 1;
+            currentState.blendMode = AnimationBlendMode.Blend;
+            currentState.wrapMode = WrapMode.Once;
+            currentState.normalizedTime = 0;
+            currentState.enabled = true;
 
-        currentState = animation[name];
-        currentState.weight = 1;
-        currentState.blendMode = AnimationBlendMode.Blend;
-        currentState.wrapMode = WrapMode.Once;
-        currentState.normalizedTime = 0;
-        currentState.enabled = true; 
-
-        AnimTime = 0F;
-        IsPlaying = true;        
+            AnimTime = 0F;
+            IsPlaying = true;
+        }
     }
 
     //============================================================================================================================================================================================//

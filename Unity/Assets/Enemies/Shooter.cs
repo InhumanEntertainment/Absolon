@@ -19,7 +19,7 @@ public class Shooter : Enemy
     //=======================================================================================================================================================/
     void Update()
     {
-        GameObject player = Game.Instance.Player.gameObject;
+        GameObject player = Player.Instance.gameObject;
         
         // Set Rotation to aim at player //
         Direction = (transform.position - player.transform.position);
@@ -36,7 +36,7 @@ public class Shooter : Enemy
     /*void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, Game.Instance.Player.transform.position);
+        Gizmos.DrawLine(transform.position, Player.Instance.transform.position);
     }*/
 }
 

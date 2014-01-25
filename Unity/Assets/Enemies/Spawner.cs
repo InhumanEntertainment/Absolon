@@ -4,7 +4,8 @@ using System.Collections;
 public class Spawner : MonoBehaviour 
 {
     public GameObject Object;
-    public int NumberofEntities;
+    public int MaxCount = 10;
+    int SpawnCount = 0;
     public float StartDelay;
 
     public Vector2 EasyTimeStep = new Vector2(1, 1);
@@ -15,24 +16,22 @@ public class Spawner : MonoBehaviour
     bool FirstRun = true;
 
     //=======================================================================================================================================================/
-    void Start()
-    {
-    }
-
-    //=======================================================================================================================================================/
     void Update()
     {
-        if (FirstRun)
+        if(Game.Instance != null)
         {
-            NextSpawnTime = Time.timeSinceLevelLoad + StartDelay + GetRandomTime();
-            FirstRun = false;
-        }
-        else
-        {
-            if (Time.timeSinceLevelLoad > NextSpawnTime)
+            if (FirstRun)
             {
-                NextSpawnTime = Time.timeSinceLevelLoad + GetRandomTime();
-                Create();
+                NextSpawnTime = Time.timeSinceLevelLoad + StartDelay + GetRandomTime();
+                FirstRun = false;
+            }
+            else
+            {
+                if (Time.timeSinceLevelLoad > NextSpawnTime)
+                {
+                    NextSpawnTime = Time.timeSinceLevelLoad + GetRandomTime();
+                    Create();
+                }
             }
         }
     }
@@ -50,7 +49,12 @@ public class Spawner : MonoBehaviour
     //=======================================================================================================================================================/
     public virtual void Create()
     {
-        Game.Spawn(Object, GetStartPosition(), Quaternion.identity);
+        SpawnCount++;
+
+        if (SpawnCount > MaxCount)
+            Destroy(gameObject);
+        else
+            Game.Spawn(Object, GetStartPosition(), Quaternion.identity);
     }
 
     //=======================================================================================================================================================/

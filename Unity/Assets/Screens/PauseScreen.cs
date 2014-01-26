@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PauseScreen : MonoBehaviour
+public class PauseScreen : GameScreen
 {
     //============================================================================================================================================================================================//
-    public void Open()
+    public void SlideFromTop()
     {
         Time.timeScale = 0f;
-        //Audio.Music.Pause();
+        Audio.Music.Pause();
     }
 
     //============================================================================================================================================================================================//
-    public void Close(){}
+    public void SlideToBottom()
+    {
+        gameObject.SetActive(false);
+    }
 
     //============================================================================================================================================================================================//
     void Update(){}
@@ -31,7 +34,8 @@ public class PauseScreen : MonoBehaviour
     {
         Time.timeScale = 1;
         Audio.Music.Play();
-        App.Instance.SetScreen("Game");       
+        App.Instance.SetScreen("Game");
+        Game.Instance.NewGame();
     }
 
     //============================================================================================================================================================================================//
@@ -40,6 +44,7 @@ public class PauseScreen : MonoBehaviour
         print("Frontend: Quit");
 
         Game.Instance.CleanupScene();
+        Game.Instance.gameObject.SetActive(false);
         App.Instance.SetScreen("Menu");
     }
 }

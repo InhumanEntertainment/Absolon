@@ -47,7 +47,7 @@ public class App : MonoBehaviour
 	{
 		for (int i = 0; i < Screens.Length; i++)
 		{
-			if (name == Screens[i].Name)
+			if (name == Screens[i].name)
 			{
 				return Screens[i];
 			}
@@ -59,18 +59,20 @@ public class App : MonoBehaviour
 	//============================================================================================================================================================================================//
 	public void SetScreen(GameScreen screen)
 	{
-		print("Set Screen: " + screen.Name);
+		print("Set Screen: " + screen.name); 
 		
 		if (screen != CurrentScreen)
 		{
             if(CurrentScreen != null)
             {
-                CurrentScreen.Close(this);
+                print("Close");
+                CurrentScreen.Close();
                 LastScreen = CurrentScreen;
             }
 
             CurrentScreen = screen;
-            screen.Open(this);
+            CurrentScreen.gameObject.SetActive(true);
+            screen.Open();
 		}
 	}
 

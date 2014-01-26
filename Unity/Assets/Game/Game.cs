@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Game : MonoBehaviour
+public class Game : GameScreen
 {
     static public Game Instance;
     public Player PlayerObject;
@@ -64,15 +64,9 @@ public class Game : MonoBehaviour
     }
 
     //============================================================================================================================================================================================//
-    public void Close()
-    {
-
-    }
-
-    //============================================================================================================================================================================================//
     void Update()
     {
-        if (App.Instance.CurrentScreen.Name == "Game")
+        if (App.Instance.CurrentScreen.name == "Game")
         {
             UpdateScore();
 
@@ -139,7 +133,7 @@ public class Game : MonoBehaviour
     }
 
     //============================================================================================================================================================================================//
-    public void Play()
+    public void NewGame()
     {
         print("Frontend: Play");
 
@@ -163,6 +157,12 @@ public class Game : MonoBehaviour
         Audio.PlayMusic("Music", true);
     }
 
+       //============================================================================================================================================================================================//
+    public void NextBlock()
+    {
+        GameBlock.Skip = true;
+    }
+
     //============================================================================================================================================================================================//
     public void Pause()
     {
@@ -183,6 +183,7 @@ public class Game : MonoBehaviour
         SetHighScore();
         Audio.PlaySound("Game Over");
         App.Instance.SetScreen("Game Over");
+        Game.Instance.gameObject.SetActive(false);              
     }
 
     //============================================================================================================================================================================================//
@@ -260,8 +261,6 @@ public class Game : MonoBehaviour
             Data.HighScore = Score;
             print("New High Score: " + Score.ToString());
         }
-
-        HighScoreText.Text = string.Format("{0:n0}", Data.HighScore);
     }
 
     //============================================================================================================================================================================================//
@@ -288,9 +287,7 @@ public class Game : MonoBehaviour
 
     //============================================================================================================================================================================================//
     public void Death()
-    {
-        SetLives(Lives - 1);
-
+    {      
         Projectile[] projectiles = GameObject.FindObjectsOfType<Projectile>();
         foreach (Projectile projectile in projectiles)
         {
@@ -304,6 +301,7 @@ public class Game : MonoBehaviour
         }
 
         Audio.PlaySound("Player Death");
+        SetLives(Lives - 1);
     }
 
     //============================================================================================================================================================================================//

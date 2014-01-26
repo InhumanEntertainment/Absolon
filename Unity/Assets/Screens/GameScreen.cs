@@ -2,28 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class GameScreen
+public class GameScreen : MonoBehaviour 
 {
-    public string Name = "Default";
-    public GameAnim[] AnimationsOpen;
-    public GameAnim[] AnimationsClose;
+    public string OpenAnimation = "SlideFromTop";
+    public string CloseAnimation = "SlideToBottom";
 
     //============================================================================================================================================//
-    public void Open(App game)
+    public void Open()
     {
-        for (int i = 0; i < AnimationsOpen.Length; i++)
-        {
-            AnimationsOpen[i].Play();
-        }
+        if (OpenAnimation != "")
+            GetComponent<MenuAnimation>().Play(OpenAnimation);
     }
 
     //============================================================================================================================================//
-    public void Close(App game)
+    public void Close()
     {
-        for (int i = 0; i < AnimationsClose.Length; i++)
-        {
-            AnimationsClose[i].Play();
-        }
+        if(CloseAnimation != "")
+            GetComponent<MenuAnimation>().Play(CloseAnimation);
     }
 }

@@ -94,7 +94,7 @@ public class Enemy : MonoBehaviour
     //=======================================================================================================================================================/
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Player")
+        if (collision.collider != null && collision.collider.tag == "Player")
         {
             ApplyDamage(1000);
         }

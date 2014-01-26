@@ -9,7 +9,7 @@ public class Marker : MonoBehaviour
     //======================================================================================================================================//
     void Update()
     {
-	    if (Player.Instance != null && Input.GetMouseButton(0) && !GameButton.InUse)
+	    if (Player.Instance != null && Input.GetMouseButton(0) && !GameButton.InUse && Time.timeScale != 0)
 	    {
 		    Vector3 end = Player.Instance.transform.position;
             Vector3 start = Camera.main.ScreenToWorldPoint(Input.mousePosition);

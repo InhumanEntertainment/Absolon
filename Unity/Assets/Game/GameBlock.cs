@@ -10,6 +10,8 @@ public class GameBlock : MonoBehaviour
     public float Duration;
     float StartTime;
 
+    static public bool Skip = false;
+
     //=================================================================================================================//
     void Awake()
     {
@@ -29,12 +31,13 @@ public class GameBlock : MonoBehaviour
             }
         }
 
-        if(Objects.Count == 0 && Time.timeSinceLevelLoad - StartTime > Duration)
+        if(Skip || (Objects.Count == 0 && Time.timeSinceLevelLoad - StartTime > Duration))
         {
             // Next Block //
             int index =  Random.Range(0, NextBlocks.Count - 1);
             GameBlock NextBlock = NextBlocks[index];
             Game.Instance.SetBlock(NextBlock);
+            Skip = false;
         }
     }
 }

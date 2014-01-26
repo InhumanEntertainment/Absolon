@@ -74,7 +74,7 @@ public class MenuAnimation : MonoBehaviour
     //============================================================================================================================================================================================//
     internal void OnAnimationCompleted()
     {
-        //print("Menu Animation: " + currentState.name + " Completed");
-        SendMessage(currentState.name, MessageObject, SendMessageOptions.DontRequireReceiver);
+        print("Menu Animation: " + currentState.name + " Completed");
+        SendMessage(currentState.name, this, SendMessageOptions.DontRequireReceiver);
     }
 }

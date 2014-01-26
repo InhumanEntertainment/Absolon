@@ -1,13 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MenuScreen : MonoBehaviour 
+public class MenuScreen : GameScreen 
 {
+    public GameData Data;
+    public GameText HighScoreText;
+
     //============================================================================================================================================================================================//
-    public void Open()
+    public void SlideFromTop()
     {
-	
-	}
+        Audio.Music.Pause();
+        HighScoreText.Text = string.Format("{0:n0}", Data.HighScore);
+    }
+
+    //============================================================================================================================================================================================//
+    public void SlideToBottom()
+    {
+        gameObject.SetActive(false);
+    }
 
     //============================================================================================================================================================================================//
     public void About()
@@ -37,7 +47,7 @@ public class MenuScreen : MonoBehaviour
     {
         print("Frontend: Play");
         App.Instance.SetScreen("Game");
-        Game.Instance.Play();
+        Game.Instance.NewGame();
     }
 
 }

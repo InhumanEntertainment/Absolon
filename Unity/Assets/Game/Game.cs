@@ -154,7 +154,7 @@ public class Game : GameScreen
 
         Time.timeScale = 1;
         App.Instance.SetScreen("Game");
-        Audio.PlayMusic("Music", true);
+        Audio.PlayMusic("Next", true);
     }
 
        //============================================================================================================================================================================================//

@@ -117,11 +117,29 @@ public class Audio : MonoBehaviour
 	{
 		if (Music != null)
 		{
-			if (Music.clip != Audio.Instance.MusicClips[song] || restart)
+			if (song == "Next" || song == "Random" || Music.clip != Audio.Instance.MusicClips[song] || restart)
 			{
+                if (song == "Random")
+                {
+                    List<string> clips = new List<string>(Audio.Instance.MusicClips.Keys);
+                    int index = Random.Range(0, clips.Count);
+                    Music.clip = Audio.Instance.MusicClips[clips[index]];
+                }
+                else if (song == "Next")
+                {
+                    List<string> clips = new List<string>(Audio.Instance.MusicClips.Keys);               
+                    Music.clip = Audio.Instance.MusicClips[clips[Audio.Instance.CurrentTrack]];
+                    Audio.Instance.CurrentTrack++;
+                    if (Audio.Instance.CurrentTrack >= clips.Count)
+                        Audio.Instance.CurrentTrack = 0;
+                }
+                else
+                {
+                    Music.clip = Audio.Instance.MusicClips[song];          
+                }
+                
 				print("Music: " + song);
-				Music.clip = Audio.Instance.MusicClips[song];
-                Music.Stop();
+				Music.Stop();
 				Music.Play();
 			}            
 		}

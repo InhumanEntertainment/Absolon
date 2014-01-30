@@ -25,10 +25,8 @@ public class Nano : Enemy
 	{
         base.FixedUpdate();
 
-        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-
         Vector3 dir = new Vector3(Random.value * RandomAcceleration * 2 - RandomAcceleration, Random.value * RandomAcceleration * 2 - RandomAcceleration, 0) * Time.deltaTime;
-        Vector3 player_dir = (player.position - transform.position).normalized * PlayerFollow * Time.deltaTime;
+        Vector3 player_dir = (Player.Instance.transform.position - transform.position).normalized * PlayerFollow * Time.deltaTime;
         Acceleration += dir + player_dir;
 
         if (Acceleration.magnitude > MaxAcceleration)

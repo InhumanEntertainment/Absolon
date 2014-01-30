@@ -4,7 +4,7 @@ using System.Collections;
 public class Spawner : MonoBehaviour 
 {
     public GameObject Object;
-    public int MaxCount = 10;
+    public int MaxCount = 1000;
     int SpawnCount = 0;
     public float StartDelay;
 

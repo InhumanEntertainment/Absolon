@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class GameBlock : MonoBehaviour
 {
-    public List<GameObject> Objects = new List<GameObject>();
     public List<GameBlock> NextBlocks = new List<GameBlock>();
     public Vector2 DurationMinMax = new Vector2(5, 10);
     public float Duration;
@@ -23,21 +22,30 @@ public class GameBlock : MonoBehaviour
     //=================================================================================================================//
     void Update()
     {
-        foreach (GameObject obj in Objects)
+        // Remove Must Kill Objects //
+        List<GameObject> KillUs = new List<GameObject>();
+        foreach (GameObject enemy in Game.Instance.Enemies)
         {
-            if (obj == null)
-            {
-                print("Dead!");
-            }
+            if (enemy == null)
+                KillUs.Add(enemy);
         }
 
-        if(Skip || (Objects.Count == 0 && Time.timeSinceLevelLoad - StartTime > Duration))
-        {
-            // Next Block //
+        foreach (GameObject enemy in KillUs)
+            Game.Instance.Enemies.Remove(enemy);
+
+        // Next Block //
+        if (Skip || (Game.Instance.Enemies.Count == 0 && Time.timeSinceLevelLoad - StartTime > Duration))
+        {         
             int index =  Random.Range(0, NextBlocks.Count - 1);
             GameBlock NextBlock = NextBlocks[index];
             Game.Instance.SetBlock(NextBlock);
             Skip = false;
+
+            foreach (GameObject enemy in Game.Instance.Enemies)
+            {
+                Destroy(enemy);
+            }
+            Game.Instance.Enemies.Clear();
         }
     }
 }

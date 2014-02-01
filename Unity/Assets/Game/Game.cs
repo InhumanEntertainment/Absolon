@@ -52,6 +52,9 @@ public class Game : GameScreen
 
     public Transform[] LifeObjects;
 
+    // Enemy Tracking //
+    public List<GameObject> Enemies = new List<GameObject>();
+
     //============================================================================================================================================================================================//
     public void Awake()
     {
@@ -66,35 +69,39 @@ public class Game : GameScreen
     //============================================================================================================================================================================================//
     void Update()
     {
-        if (App.Instance.CurrentScreen.name == "Game")
+        UpdateScore();
+
+        // Difficulty Ramp //
+        /*
+        DifficultyVelocity += (Random.value * DifficultyAcceleration - (DifficultyAcceleration * 0.5f));
+        if (Mathf.Abs(DifficultyVelocity) > DifficultyVelocityMax)
         {
-            UpdateScore();
-
-            // Difficulty Ramp //
-            /*
-            DifficultyVelocity += (Random.value * DifficultyAcceleration - (DifficultyAcceleration * 0.5f));
-            if (Mathf.Abs(DifficultyVelocity) > DifficultyVelocityMax)
-            {
-                DifficultyVelocity = Mathf.Sign(DifficultyVelocity) * DifficultyVelocityMax;
-            }
-
-            Difficulty += DifficultyVelocity * Time.deltaTime;
-            if (Difficulty < DifficultyMin)
-            {
-                Difficulty = DifficultyMin;
-                DifficultyVelocity *= 0.95f;
-            }
-
-            if (Difficulty > DifficultyMax)
-            {
-                DifficultyMax = Difficulty;
-                DifficultyMin = DifficultyMax * 0.25f;
-                DifficultyMin = Mathf.Max(0, DifficultyMin);
-                DifficultyVelocity *= 0.95f;
-            }*/
-
-            Difficulty = (Time.timeSinceLevelLoad - StartTime) / DifficultyRampDuraction;
+            DifficultyVelocity = Mathf.Sign(DifficultyVelocity) * DifficultyVelocityMax;
         }
+
+        Difficulty += DifficultyVelocity * Time.deltaTime;
+        if (Difficulty < DifficultyMin)
+        {
+            Difficulty = DifficultyMin;
+            DifficultyVelocity *= 0.95f;
+        }
+
+        if (Difficulty > DifficultyMax)
+        {
+            DifficultyMax = Difficulty;
+            DifficultyMin = DifficultyMax * 0.25f;
+            DifficultyMin = Mathf.Max(0, DifficultyMin);
+            DifficultyVelocity *= 0.95f;
+        }*/
+
+        Difficulty += (Time.deltaTime / DifficultyRampDuraction);
+
+        if (Input.GetKey(KeyCode.A))
+            Difficulty += 0.5f * Time.deltaTime;
+        else if(Input.GetKey(KeyCode.Z))
+            Difficulty -= 0.5f * Time.deltaTime;
+
+        Difficulty = Mathf.Clamp01(Difficulty);
     }
 
     //============================================================================================================================================================================================//

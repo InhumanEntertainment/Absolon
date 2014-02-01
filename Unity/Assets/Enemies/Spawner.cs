@@ -4,6 +4,7 @@ using System.Collections;
 public class Spawner : MonoBehaviour 
 {
     public GameObject Object;
+    public bool MustKill = false;
     public int MaxCount = 1000;
     int SpawnCount = 0;
     public float StartDelay;
@@ -54,7 +55,14 @@ public class Spawner : MonoBehaviour
         if (SpawnCount > MaxCount)
             Destroy(gameObject);
         else
-            Game.Spawn(Object, GetStartPosition(), Quaternion.identity);
+        {
+            GameObject obj = (GameObject)Game.Spawn(Object, GetStartPosition(), Quaternion.identity);
+            if (MustKill)
+            {
+                Game.Instance.Enemies.Add(obj);
+                print("Must Kill:" + obj.name);
+            }
+        }
     }
 
     //=======================================================================================================================================================/

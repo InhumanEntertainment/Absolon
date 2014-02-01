@@ -14,7 +14,6 @@ public class GameOverScreen : GameScreen
     public void SlideFromTop()
     {
         Time.timeScale = 0f;
-
         if (!IsPlaying)
         {
             IsPlaying = true;

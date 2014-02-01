@@ -54,6 +54,7 @@ public class Game : GameScreen
 
     // Enemy Tracking //
     public List<GameObject> Enemies = new List<GameObject>();
+    public Transform ObjectGroup;
 
     //============================================================================================================================================================================================//
     public void Awake()
@@ -267,7 +268,11 @@ public class Game : GameScreen
         {
             Data.HighScore = Score;
             print("New High Score: " + Score.ToString());
+
+            HighScoreText.gameObject.SetActive(true);
         }
+        else
+            HighScoreText.gameObject.SetActive(false);
     }
 
     //============================================================================================================================================================================================//
@@ -348,8 +353,7 @@ public class Game : GameScreen
 
         if (!isPermanent)
         {
-            GameObject objectsGroup = GameObject.Find("Objects");
-            if (objectsGroup != null)
+            if (Instance.ObjectGroup != null)
             {
                 Transform xform = null;
                 if (obj is GameObject)
@@ -358,7 +362,7 @@ public class Game : GameScreen
                     xform = ((Component)obj).transform;
 
                 if (xform != null)
-                    xform.parent = objectsGroup.transform;
+                    xform.parent = Instance.ObjectGroup;
             }
         }
 

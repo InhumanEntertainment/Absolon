@@ -26,7 +26,7 @@ public class Psycho : Enemy
     void Start()
     {
         GameObject laser = transform.GetChild(0).gameObject;
-        laser.SetActive(false);
+        //laser.SetActive(false);
         StartPosition = transform.position;
         NextFireTime = Time.timeSinceLevelLoad + Mathf.Lerp(FireTimeMin, FireTimeMax, Random.value);
     }
@@ -52,7 +52,7 @@ public class Psycho : Enemy
                 if(Time.timeSinceLevelLoad > LastFireTime + FireDuration)
                 {
                     GameObject laser = transform.GetChild(0).gameObject;
-                    laser.SetActive(false);
+                    //laser.SetActive(false);
                     State = PsychoState.Idle;
                 }
 

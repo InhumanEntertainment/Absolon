@@ -1,12 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Enemies\Enemy.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\Mobius\GIT\Unity\Assets\Scripts\AboutScreen.cs">
     <Files>
-      <File FileName="Assets\Enemies\Shooter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Fonts\GameText.cs" Line="1" Column="1" />
-      <File FileName="Assets\Enemies\Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\Enemies\Shooter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Enemies\Spawner.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\Mobius\GIT\Unity\Assets\Scripts\AboutScreen.cs" Line="51" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

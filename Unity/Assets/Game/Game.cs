@@ -19,6 +19,7 @@ public class Game : GameScreen
 
     // Gameplay //
     public int Lives = 3;
+    public int ScorePerLife = 10000;
     public GameText LivesText;
     public int Score = 0;
     public GameText ScoreText;
@@ -68,40 +69,31 @@ public class Game : GameScreen
     }
 
     //============================================================================================================================================================================================//
+    float DifficultyTime = 0;
+    float DifficultyVariation = 0;
+    float DifficultyVariationAmount = 0.3f;
     void Update()
     {
         UpdateScore();
 
         // Difficulty Ramp //
-        /*
         DifficultyVelocity += (Random.value * DifficultyAcceleration - (DifficultyAcceleration * 0.5f));
         if (Mathf.Abs(DifficultyVelocity) > DifficultyVelocityMax)
         {
             DifficultyVelocity = Mathf.Sign(DifficultyVelocity) * DifficultyVelocityMax;
         }
 
-        Difficulty += DifficultyVelocity * Time.deltaTime;
-        if (Difficulty < DifficultyMin)
-        {
-            Difficulty = DifficultyMin;
-            DifficultyVelocity *= 0.95f;
-        }
-
-        if (Difficulty > DifficultyMax)
-        {
-            DifficultyMax = Difficulty;
-            DifficultyMin = DifficultyMax * 0.25f;
-            DifficultyMin = Mathf.Max(0, DifficultyMin);
-            DifficultyVelocity *= 0.95f;
-        }*/
-
-        Difficulty += (Time.deltaTime / DifficultyRampDuraction);
+        DifficultyVariation += DifficultyVelocity * Time.deltaTime;
+        DifficultyVariation = Mathf.Clamp(DifficultyVariation, -DifficultyVariationAmount, DifficultyVariationAmount);
+        DifficultyTime += (Time.deltaTime / DifficultyRampDuraction);
 
         if (Input.GetKey(KeyCode.A))
-            Difficulty += 0.5f * Time.deltaTime;
+            DifficultyTime += 0.5f * Time.deltaTime;
         else if(Input.GetKey(KeyCode.Z))
-            Difficulty -= 0.5f * Time.deltaTime;
+            DifficultyTime -= 0.5f * Time.deltaTime;
 
+        DifficultyTime = Mathf.Clamp01(DifficultyTime);
+        Difficulty = DifficultyTime + DifficultyVariation;
         Difficulty = Mathf.Clamp01(Difficulty);
     }
 
@@ -156,6 +148,8 @@ public class Game : GameScreen
         DifficultyMin = 0;
         DifficultyMax = 1;
         DifficultyVelocity = 0;
+        DifficultyVariation = 0;
+        DifficultyTime = 0;
         Player = (Player)Game.Spawn(PlayerObject, PlayerStartPosition);
         SetBlock(StartBlock);
         StartTime = Time.timeSinceLevelLoad;
@@ -224,6 +218,7 @@ public class Game : GameScreen
             EnergyCount = 0;
             SetBombs(BombCount + 1);
             Game.Spawn(NewBombEffect, BombText.transform.position);
+            Audio.PlaySound("Extra Bomb");
         }
 
         EnergyBar.transform.localScale = new Vector3(EnergyCount / (float)EnergyPerBomb * 76, 1, 1);
@@ -252,6 +247,14 @@ public class Game : GameScreen
     public void AddScore(int value)
     {
         SetScore(Score + value);
+
+        int before = Mathf.FloorToInt(Score / ScorePerLife);
+        int after = Mathf.FloorToInt((Score + value) / ScorePerLife);
+        if (after - before == 1)
+        {
+            Audio.PlaySound("Extra Life");
+            SetLives(Lives + 1);
+        }
     }
 
     //============================================================================================================================================================================================//

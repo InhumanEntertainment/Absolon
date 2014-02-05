@@ -16,6 +16,8 @@ public class Psycho : Enemy
     public Vector3 StartPosition;
 
     // Weapon //
+    public GameObject Laser;
+    Vector3 LaserOffset;
     public float FireDuration = 4;
     public float FireTimeMin = 1;
     public float FireTimeMax = 2;
@@ -25,23 +27,24 @@ public class Psycho : Enemy
     //=======================================================================================================================================================/
     void Start()
     {
-        GameObject laser = transform.GetChild(0).gameObject;
-        //laser.SetActive(false);
+        Laser.SetActive(false);
         StartPosition = transform.position;
+        LaserOffset = Laser.transform.localPosition;
         NextFireTime = Time.timeSinceLevelLoad + Mathf.Lerp(FireTimeMin, FireTimeMax, Random.value);
     }
 
 	//=======================================================================================================================================================/
     void Update()
     {
+        Laser.transform.position = transform.position + LaserOffset;
+
         // Get Laser //
         switch (State)
 	    {
             case PsychoState.Idle:
                 if(Time.timeSinceLevelLoad > NextFireTime)
                 {
-                    GameObject laser = transform.GetChild(0).gameObject;
-                    laser.SetActive(true);
+                    Laser.SetActive(true);
                     State = PsychoState.Firing;
                     LastFireTime = Time.timeSinceLevelLoad;
                     NextFireTime = Time.timeSinceLevelLoad + FireDuration + Mathf.Lerp(FireTimeMin, FireTimeMax, Random.value); 
@@ -51,8 +54,7 @@ public class Psycho : Enemy
             case PsychoState.Firing:
                 if(Time.timeSinceLevelLoad > LastFireTime + FireDuration)
                 {
-                    GameObject laser = transform.GetChild(0).gameObject;
-                    //laser.SetActive(false);
+                    Laser.SetActive(false);
                     State = PsychoState.Idle;
                 }
 

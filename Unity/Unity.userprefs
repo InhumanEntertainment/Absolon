@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\Mobius\GIT\Unity\Assets\Scripts\AboutScreen.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Ads\Ads.cs">
     <Files>
-      <File FileName="..\..\..\Mobius\GIT\Unity\Assets\Scripts\AboutScreen.cs" Line="51" Column="1" />
+      <File FileName="Assets\Ads\Ads.cs" Line="48" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

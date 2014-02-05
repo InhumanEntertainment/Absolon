@@ -151,12 +151,11 @@ public class Player : MonoBehaviour
         return vec;
     }
 
-    //=======================================================================================================================================================/
-    void OnCollisionEnter2D(Collision2D collision)
+    //======================================================================================================================================//
+    public void Kill()
     {
-        if (collision.collider.tag == "Enemy" && isAlive)
+        if (isAlive)
         {
-            //Destroy(this.gameObject);
             // Play Effect //
             if (DeathEffect)
                 Game.Spawn(DeathEffect, transform.position);
@@ -170,6 +169,15 @@ public class Player : MonoBehaviour
             Weapon = (Weapon)Instantiate(Game.Instance.Weapons[0]);
 
             Game.Instance.Death();
+        }
+    }
+
+    //=======================================================================================================================================================/
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Enemy")
+        {
+            Kill();
         }
     }
 }

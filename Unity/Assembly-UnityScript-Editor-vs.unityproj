@@ -137,6 +137,15 @@
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
+ <Reference Include="Reign.EditorTools">
+ <HintPath>Assets\Editor\Reign\Reign.EditorTools.dll</HintPath>
+ </Reference>
+ <Reference Include="Reign.Android">
+ <HintPath>Assets\Plugins\Android\Reign.Android.dll</HintPath>
+ </Reference>
+ <Reference Include="Reign">
+ <HintPath>Assets\Plugins\Reign\Reign.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:\Program Files (x86)\Unity\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -155,25 +164,18 @@
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="Reign.EditorTools">
- <HintPath>Assets\Editor\Reign\Reign.EditorTools.dll</HintPath>
- </Reference>
- <Reference Include="Reign.BB10">
- <HintPath>Assets\Plugins\BlackBerry\Reign.BB10.dll</HintPath>
- </Reference>
  <Reference Include="Reign.iOS">
  <HintPath>Assets\Plugins\IOS\Reign.iOS.dll</HintPath>
  </Reference>
- <Reference Include="Reign.Android">
- <HintPath>Assets\Plugins\Android\Reign.Android.dll</HintPath>
- </Reference>
- <Reference Include="Reign">
- <HintPath>Assets\Plugins\Reign\Reign.dll</HintPath>
+ <Reference Include="Reign.BB10">
+ <HintPath>Assets\Plugins\BlackBerry\Reign.BB10.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
       <Project>{2662B409-6332-1E56-D797-C9025C53BDD6}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-vs.csproj">
+      <Project>{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

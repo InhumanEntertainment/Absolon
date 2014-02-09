@@ -140,17 +140,17 @@
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
- <Reference Include="Reign.BB10">
- <HintPath>Assets\Plugins\BlackBerry\Reign.BB10.dll</HintPath>
- </Reference>
- <Reference Include="Reign.iOS">
- <HintPath>Assets\Plugins\IOS\Reign.iOS.dll</HintPath>
- </Reference>
  <Reference Include="Reign.Android">
  <HintPath>Assets\Plugins\Android\Reign.Android.dll</HintPath>
  </Reference>
  <Reference Include="Reign">
  <HintPath>Assets\Plugins\Reign\Reign.dll</HintPath>
+ </Reference>
+ <Reference Include="Reign.iOS">
+ <HintPath>Assets\Plugins\IOS\Reign.iOS.dll</HintPath>
+ </Reference>
+ <Reference Include="Reign.BB10">
+ <HintPath>Assets\Plugins\BlackBerry\Reign.BB10.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

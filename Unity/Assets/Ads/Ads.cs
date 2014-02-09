@@ -9,33 +9,38 @@ public class Ads : MonoBehaviour
     {
         AdDesc adDesc = new AdDesc()
         {
-            Testing = true,
+            Testing = false,
             Visible = true,
             EventCallback = adEvent,
 
             // Win8 settings
-            /*Win8_MicrosoftAdvertising_ApplicationID = "",
-            Win8_MicrosoftAdvertising_UnitID = "",
-            Win8_MicrosoftAdvertising_AdGravity = AdGravity.BottomCenter,
-            Win8_MicrosoftAdvertising_AdSize = Win8_MicrosoftAdvertising_AdSize.Wide_728x90,
+            Win8_MicrosoftAdvertising_ApplicationID = "becf60c2-cc18-417f-9a75-de8f1e79af09",
+            Win8_MicrosoftAdvertising_UnitID = "10710928",
+            Win8_MicrosoftAdvertising_AdGravity = AdGravity.BottomRight,
+            Win8_MicrosoftAdvertising_AdSize = Win8_MicrosoftAdvertising_AdSize.Tall_300x600,
 
             // WP8 settings
-            WP8_MicrosoftAdvertising_ApplicationID = "",
-            WP8_MicrosoftAdvertising_UnitID = "",
-            WP8_MicrosoftAdvertising_AdGravity = AdGravity.BottomCenter,
+            WP8_MicrosoftAdvertising_ApplicationID = "6708e265-7f29-427e-accd-9bcc725c5486",
+            WP8_MicrosoftAdvertising_UnitID = "10710930", //10710930 - 480, 10710927 - 320x59
+            WP8_MicrosoftAdvertising_AdGravity = AdGravity.BottomRight,
             WP8_MicrosoftAdvertising_AdSize = WP8_MicrosoftAdvertising_AdSize.Wide_480x80,
 
             // iOS settings
-            iOS_MicrosoftAdvertising_AdGravity = AdGravity.BottomCenter,*/
+            //iOS_MicrosoftAdvertising_AdGravity = AdGravity.BottomCenter,
 
             // Android settings
-            Android_AdAPI = AdAPIs.AdMob,// Choose between AdMob or AmazonAds
+            Android_AdAPI = AdAPIs.AdMob,
             Android_AdMob_UnitID = "ca-app-pub-1060625878365419/6352906285",
-            Android_AdMob_AdGravity = AdGravity.BottomRight,
-            //Android_AmazonAds_ApplicationKey = "",
-            //Android_AmazonAds_AdGravity = AdGravity.BottomCenter,
-            //Android_AmazonAds_AdSize = Android_AmazonAds_AdSize.Wide_320x50
+            Android_AdMob_AdGravity = AdGravity.BottomCenter,
+            Android_AmazonAds_ApplicationKey = "060c3c7bb9b744aaade320b552351ca2",
+            Android_AmazonAds_AdGravity = AdGravity.BottomCenter,
+            Android_AmazonAds_AdSize = Android_AmazonAds_AdSize.Wide_320x50
         };
+
+       /* if (App.Instance.AndroidStore == App.AndroidStores.Google)
+            adDesc.Android_AdAPI = AdAPIs.AdMob;
+        else
+            adDesc.Android_AdAPI = AdAPIs.AmazonAds;*/
 
         AdManager.CreateAd(adDesc, adCreatedCallback);  
     }
@@ -54,7 +59,10 @@ public class Ads : MonoBehaviour
         {
             case AdEvents.Refreshed: print("Ad Refreshed"); break;
             case AdEvents.Clicked: print("Ad Clicked"); break;
-            case AdEvents.Error: print("Ad Error: " + eventMessage); break;
+            case AdEvents.Error: 
+                print("Ad Error: " + eventMessage);
+                //Reign.MessageBoxManager.Show("Ads", eventMessage);
+                break;
         }
     }
 }

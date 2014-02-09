@@ -5,7 +5,9 @@ using System.Collections.Generic;
 
 public class App : MonoBehaviour 
 {
-	static public App Instance;	
+	static public App Instance;
+    public enum AndroidStores {Google, Amazon};
+    public AndroidStores AndroidStore = AndroidStores.Google;
 	public int TargetFramerate = 60;
 	float FPS = 60;
 	
@@ -17,6 +19,9 @@ public class App : MonoBehaviour
 	//============================================================================================================================================================================================//
 	void Awake()
 	{
+        if (!PlayerPrefs.HasKey("HighScore"))
+            PlayerPrefs.SetInt("HighScore", 10000);
+
 		// Singleton //
 		if (App.Instance == null)
 		{
@@ -80,7 +85,19 @@ public class App : MonoBehaviour
     public void SetScreen(string name)
 	{
 		SetScreen(GetScreen(name));
-	} 
+	}
+
+    //============================================================================================================================================================================================//
+    public void SetAmazon()
+    {
+        AndroidStore = AndroidStores.Amazon;
+    }
+
+    //============================================================================================================================================================================================//
+    public void SetGoogle()
+    {
+        AndroidStore = AndroidStores.Google;
+    } 
 }
 
 	

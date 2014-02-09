@@ -9,7 +9,6 @@ public class Game : GameScreen
     public Vector3 PlayerStartPosition;
 
     // Data //
-    public GameData Data;
     public GameText HighScoreText;
 
     // Blocks //
@@ -267,9 +266,10 @@ public class Game : GameScreen
     //============================================================================================================================================================================================//
     public void SetHighScore()
     {
-        if (Score > Data.HighScore)
+        if (Score >  PlayerPrefs.GetInt("HighScore"))
         {
-            Data.HighScore = Score;
+            PlayerPrefs.SetInt("HighScore", Score);
+
             print("New High Score: " + Score.ToString());
 
             HighScoreText.gameObject.SetActive(true);

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class MenuScreen : GameScreen 
 {
-    public GameData Data;
     public GameText HighScoreText;
     public GameObject RateButton;
 
@@ -11,7 +10,7 @@ public class MenuScreen : GameScreen
     public void SlideFromTop()
     {
         Audio.Music.Pause();
-        HighScoreText.Text = string.Format("{0:n0}", Data.HighScore);
+        HighScoreText.Text = string.Format("{0:n0}",  PlayerPrefs.GetInt("HighScore"));
 
 #if UNITY_WP8 || UNITY_ANDROID || UNITY_IPHONE || UNITY_METRO
         RateButton.SetActive(true);
@@ -43,10 +42,10 @@ public class MenuScreen : GameScreen
 
 #elif UNITY_ANDROID
         string id = "com.inhuman.absolon";
-        if(SystemInfo.deviceModel.ToLower().Contains("kindle"))
+        if(App.Instance.AndroidStore == App.AndroidStores.Amazon)
 		    Application.OpenURL("amzn://apps/android?p=" + id);
 	    else
-		    Application.OpenURL("market://details?id=" + id);	
+		    Application.OpenURL("market://details?id=" + id);
 
 #elif UNITY_METRO
         //Application.OpenURL("ms-windows-store:PDP?PFN=");

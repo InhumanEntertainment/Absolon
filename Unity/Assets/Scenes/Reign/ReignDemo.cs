@@ -41,13 +41,13 @@ public class ReignDemo : MonoBehaviour
 			EventCallback = adEvent,
 
 			// Win8 settings
-			Win8_MicrosoftAdvertising_ApplicationID = "",// Non Testing ApplicationID
-			Win8_MicrosoftAdvertising_UnitID = "",// Non Testing UnityID
+            Win8_MicrosoftAdvertising_ApplicationID = "becf60c2-cc18-417f-9a75-de8f1e79af09",
+            Win8_MicrosoftAdvertising_UnitID = "10710928",
 			Win8_MicrosoftAdvertising_AdGravity = AdGravity.BottomCenter,
 			Win8_MicrosoftAdvertising_AdSize = Win8_MicrosoftAdvertising_AdSize.Wide_728x90,
 			// WP8 settings
-			WP8_MicrosoftAdvertising_ApplicationID = "",// Non Testing ApplicationID
-			WP8_MicrosoftAdvertising_UnitID = "",// Non Testing UnityID
+            WP8_MicrosoftAdvertising_ApplicationID = "6708e265-7f29-427e-accd-9bcc725c5486",
+            WP8_MicrosoftAdvertising_UnitID = "10710927",
 			WP8_MicrosoftAdvertising_AdGravity = AdGravity.BottomCenter,
 			WP8_MicrosoftAdvertising_AdSize = WP8_MicrosoftAdvertising_AdSize.Wide_480x80,
 			// BB10 settings
@@ -66,9 +66,7 @@ public class ReignDemo : MonoBehaviour
 		// InApp-Purchases - NOTE: you can set different "In App IDs" for each platform.
 		var inAppIDs = new InAppPurchaseID[]
 		{
-			new InAppPurchaseID("com.inhuman.absolon", InAppPurchaseTypes.NonConsumable),
-			new InAppPurchaseID("com.inhuman.absolon", InAppPurchaseTypes.NonConsumable),
-			new InAppPurchaseID("com.inhuman.absolon", InAppPurchaseTypes.Consumable)
+			new InAppPurchaseID("NoAds", InAppPurchaseTypes.NonConsumable)
 		};
 		restoreInAppStatusText = new string[inAppIDs.Length];
 		

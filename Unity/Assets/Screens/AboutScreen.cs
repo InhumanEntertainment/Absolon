@@ -3,8 +3,6 @@ using System.Collections;
 
 public class AboutScreen : GameScreen 
 {
-    public GameData Data;
-
     //============================================================================================================================================================================================//
     public void SlideFromTop()
     {
@@ -48,7 +46,7 @@ public class AboutScreen : GameScreen
     public void Reset()
     {
         print("Frontend: Reset");
-        Data.HighScore = 10000;
+         PlayerPrefs.SetInt("HighScore", 10000);
     }
 
     //============================================================================================================================================================================================//

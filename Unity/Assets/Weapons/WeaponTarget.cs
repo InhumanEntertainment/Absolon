@@ -40,6 +40,7 @@ public class WeaponTarget : Weapon
         Vector3 dir = (Reticule.position - player.transform.position).normalized;
 
         GameObject projectile1 = (GameObject)Game.Spawn(Projectile, transform.position, Quaternion.identity);
-        projectile1.rigidbody2D.velocity = dir * Velocity;            
+        float velocity = Mathf.Lerp(VelocityMinMax.x, VelocityMinMax.y, Game.Instance.Difficulty);
+        projectile1.rigidbody2D.velocity = dir * velocity;            
     }
 }

@@ -16,9 +16,10 @@ public class WeaponBeast : Weapon
     //=======================================================================================================================================================/
     public override void CreateProjectile()
     {
+        Toggle = !Toggle;
         Vector3 pos = Weapon1.transform.position;
-        if (Toggle)
-            pos = Weapon2.transform.position;
+        if(Toggle)
+            pos = Weapon2.transform.position;    
 
         GameObject projectile1 = (GameObject)Game.Spawn(Projectile, pos, Quaternion.identity);
         float velocity = Mathf.Lerp(VelocityMinMax.x, VelocityMinMax.y, Game.Instance.Difficulty);

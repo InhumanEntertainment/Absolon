@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public Vector3 TouchOffset;
     public ParticleSystem DeathEffect;
 
-    float DeathTimeout = 2;
+    float DeathTimeout = 1;
     float DeathStart;
     public bool isAlive = true;
 

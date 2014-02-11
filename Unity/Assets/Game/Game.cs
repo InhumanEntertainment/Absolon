@@ -317,6 +317,8 @@ public class Game : GameScreen
 
         Audio.PlaySound("Player Death");
         SetLives(Lives - 1);
+        ColorEffect effect = Camera.main.gameObject.GetComponent<ColorEffect>();
+        effect.StartFade();
     }
 
     //============================================================================================================================================================================================//

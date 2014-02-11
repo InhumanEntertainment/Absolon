@@ -3,6 +3,10 @@ using System.Collections;
 
 public class WeaponBeast : Weapon
 {
+    public Transform Weapon1;
+    public Transform Weapon2;
+    bool Toggle;
+
     //=======================================================================================================================================================/
     void Update()
     {
@@ -10,12 +14,14 @@ public class WeaponBeast : Weapon
     }
 
     //=======================================================================================================================================================/
-    /*public override void CreateProjectile()
+    public override void CreateProjectile()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Vector3 dir = (player.transform.position - transform.position).normalized;
+        Vector3 pos = Weapon1.transform.position;
+        if (Toggle)
+            pos = Weapon2.transform.position;
 
-        Projectile projectile1 = (Projectile)Game.Spawn(Projectile, transform.position, Quaternion.identity);
-        projectile1.rigidbody2D.velocity = dir * Velocity;            
-    }*/
+        GameObject projectile1 = (GameObject)Game.Spawn(Projectile, pos, Quaternion.identity);
+        float velocity = Mathf.Lerp(VelocityMinMax.x, VelocityMinMax.y, Game.Instance.Difficulty);
+        projectile1.rigidbody2D.velocity = new Vector2(0, velocity);            
+    }
 }

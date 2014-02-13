@@ -428,5 +428,23 @@ TextureImporter:
         height: 15
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: Award Silver
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 177
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Award Bronze
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 177
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 

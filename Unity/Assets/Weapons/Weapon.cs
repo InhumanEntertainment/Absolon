@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     public Vector2 FireDelayMinMax = new Vector2(0.1f, 0.1f);
     public Vector2 VelocityMinMax = new Vector2(1, 1);
     public Vector3 Offset = Vector3.zero;
+    public bool AutoFire = false;
 
     float LastFireTime;
     
@@ -30,6 +31,13 @@ public class Weapon : MonoBehaviour
 
             LastFireTime = Time.timeSinceLevelLoad + (FireDelay - i);
         }
+    }
+
+    //=======================================================================================================================================================/
+    void Update()
+    {
+        if(AutoFire)
+            Fire();
     }
 
     //=======================================================================================================================================================/

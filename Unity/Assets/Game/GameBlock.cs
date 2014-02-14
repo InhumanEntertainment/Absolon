@@ -36,7 +36,7 @@ public class GameBlock : MonoBehaviour
         // Next Block //
         if (Skip || (Game.Instance.Enemies.Count == 0 && Time.timeSinceLevelLoad - StartTime > Duration))
         {         
-            int index =  Random.Range(0, NextBlocks.Count - 1);
+            int index =  Random.Range(0, NextBlocks.Count);
             GameBlock NextBlock = NextBlocks[index];
             Game.Instance.SetBlock(NextBlock);
             Skip = false;

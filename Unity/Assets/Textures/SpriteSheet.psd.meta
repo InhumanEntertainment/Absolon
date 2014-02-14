@@ -251,10 +251,10 @@ TextureImporter:
     - name: Psycho
       rect:
         serializedVersion: 2
-        x: 200
-        y: 83
+        x: 212
+        y: 86
         width: 118
-        height: 90
+        height: 85
       alignment: 0
       pivot: {x: .5, y: .5}
     - name: Reticule
@@ -453,6 +453,15 @@ TextureImporter:
         y: 177
         width: 28
         height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Warlock
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 101
+        width: 46
+        height: 50
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 

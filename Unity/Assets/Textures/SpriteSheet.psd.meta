@@ -437,13 +437,22 @@ TextureImporter:
         height: 37
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: Award Bronze
+    - name: Award Gold
       rect:
         serializedVersion: 2
         x: 247
         y: 177
         width: 36
         height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Award Bronze
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 177
+        width: 28
+        height: 35
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 

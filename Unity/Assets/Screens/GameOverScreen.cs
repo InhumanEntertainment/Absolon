@@ -9,6 +9,7 @@ public class GameOverScreen : GameScreen
 
     public GameText ScoreText;
     public ParticleSystem ScoreEffect;
+    public GameObject[] Awards;
 
     //============================================================================================================================================================================================//
     public void SlideFromTop()
@@ -19,6 +20,16 @@ public class GameOverScreen : GameScreen
             IsPlaying = true;
             StartTime = Time.realtimeSinceStartup;
         }
+
+        Awards[0].SetActive(false);
+        Awards[1].SetActive(false);
+        Awards[2].SetActive(false);
+        if (Game.Instance.Score > 100000)
+            Awards[2].SetActive(true);
+        else if(Game.Instance.Score > 50000)
+            Awards[1].SetActive(true);
+        else if(Game.Instance.Score > 25000)
+            Awards[0].SetActive(true);
     }
 
     //============================================================================================================================================================================================//

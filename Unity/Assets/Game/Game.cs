@@ -48,6 +48,9 @@ public class Game : GameScreen
     float DifficultyVelocity = 0;
     float DifficultyMin = 0;
     float DifficultyMax = 1;
+    float DifficultyTime = 0;
+    float DifficultyVariation = 0;
+    float DifficultyVariationAmount = 0.3f;
     List<float> DifficultyLine = new List<float>();
 
     public Transform[] LifeObjects;
@@ -68,11 +71,14 @@ public class Game : GameScreen
     }
 
     //============================================================================================================================================================================================//
-    float DifficultyTime = 0;
-    float DifficultyVariation = 0;
-    float DifficultyVariationAmount = 0.3f;
+
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+
         UpdateScore();
 
         // Difficulty Ramp //
@@ -94,6 +100,15 @@ public class Game : GameScreen
         DifficultyTime = Mathf.Clamp01(DifficultyTime);
         Difficulty = DifficultyTime + DifficultyVariation;
         Difficulty = Mathf.Clamp01(Difficulty);
+    }
+
+    //============================================================================================================================================================================================//
+    void OnApplicationPause(bool status)
+    {
+        if (status)
+        {
+            Pause();
+        }
     }
 
     //============================================================================================================================================================================================//

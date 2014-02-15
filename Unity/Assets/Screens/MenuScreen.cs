@@ -26,6 +26,15 @@ public class MenuScreen : GameScreen
     }
 
     //============================================================================================================================================================================================//
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
+    //============================================================================================================================================================================================//
     public void About()
     {
         print("Frontend: About");
@@ -38,7 +47,7 @@ public class MenuScreen : GameScreen
         print("Frontend: Rate");
 
 #if UNITY_WP8
-        Application.OpenURL("http://www.windowsphone.com/s?appid=a7a12b7d-53e0-4043-a3f0-9655bf94c6b2");
+        Application.OpenURL("http://www.windowsphone.com/s?appid=4b00f91e-b277-4573-8dd3-910f7d649b12");
 
 #elif UNITY_ANDROID
         string id = "com.inhuman.absolon";

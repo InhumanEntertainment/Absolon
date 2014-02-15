@@ -297,8 +297,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 138
-        y: 174
-        width: 65
+        y: 154
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -314,12 +314,12 @@ TextureImporter:
     - name: Psycho Laser
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 10
-        height: 240
-      alignment: 2
-      pivot: {x: .5, y: 1}
+        x: 1
+        y: 229
+        width: 344
+        height: 10
+      alignment: 4
+      pivot: {x: 0, y: .5}
     - name: Enemy Projectile Large
       rect:
         serializedVersion: 2

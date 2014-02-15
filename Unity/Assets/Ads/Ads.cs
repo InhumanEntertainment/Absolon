@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+/*
 using Reign;
 
 public class Ads : MonoBehaviour 
@@ -17,7 +18,7 @@ public class Ads : MonoBehaviour
             Win8_MicrosoftAdvertising_ApplicationID = "becf60c2-cc18-417f-9a75-de8f1e79af09",
             Win8_MicrosoftAdvertising_UnitID = "10710928",
             Win8_MicrosoftAdvertising_AdGravity = AdGravity.BottomRight,
-            Win8_MicrosoftAdvertising_AdSize = Win8_MicrosoftAdvertising_AdSize.Tall_300x600,
+            Win8_MicrosoftAdvertising_AdSize = Win8_MicrosoftAdvertising_AdSize.Wide_728x90,
 
             // WP8 settings
             WP8_MicrosoftAdvertising_ApplicationID = "6708e265-7f29-427e-accd-9bcc725c5486",
@@ -37,10 +38,10 @@ public class Ads : MonoBehaviour
             Android_AmazonAds_AdSize = Android_AmazonAds_AdSize.Wide_320x50
         };
 
-       /* if (App.Instance.AndroidStore == App.AndroidStores.Google)
+        if (App.Instance.AndroidStore == App.AndroidStores.Google)
             adDesc.Android_AdAPI = AdAPIs.AdMob;
         else
-            adDesc.Android_AdAPI = AdAPIs.AmazonAds;*/
+            adDesc.Android_AdAPI = AdAPIs.AmazonAds;
 
         AdManager.CreateAd(adDesc, adCreatedCallback);  
     }
@@ -66,3 +67,4 @@ public class Ads : MonoBehaviour
         }
     }
 }
+*/

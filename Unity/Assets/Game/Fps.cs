@@ -15,7 +15,7 @@ public class Fps : MonoBehaviour
         string fps = FPS.ToString("n2");
         GameText text = GetComponent<GameText>();
 
-        uint memory = Profiler.GetTotalAllocatedMemory();
+        uint memory = Profiler.usedHeapSize;
         text.Text = fps + " : " + Game.Instance.Difficulty.ToString("N2") + " : " + string.Format("{0:n0}", memory / 1024f) + "mb";	
 	}
 }

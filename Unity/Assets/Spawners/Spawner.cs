@@ -83,7 +83,7 @@ public class Spawner : MonoBehaviour
             if (MustKill)
             {
                 Game.Instance.Enemies.Add(obj);
-                print("Must Kill:" + obj.name);
+                //print("Must Kill:" + obj.name);
             }
         }
     }

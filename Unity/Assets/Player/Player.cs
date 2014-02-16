@@ -20,11 +20,18 @@ public class Player : MonoBehaviour
     // Joystick //
     public float JoystickSpeed = 2;
 
+    // States //
+    public Animator State;
+
     //======================================================================================================================================//
     void Awake()
     {
         Instance = this;
         Weapon = Game.Spawn(StartWeapon) as Weapon;
+        State = GetComponent<Animator>();
+
+        // State Hashes //
+        DeathHash = Animator.StringToHash("Death");
 	}
 
     //======================================================================================================================================//
@@ -36,8 +43,14 @@ public class Player : MonoBehaviour
     }
 
     //======================================================================================================================================//
+    int DeathHash;
     void Update()
     {
+        if (State.GetCurrentAnimatorStateInfo(0).IsName("Player Death"))
+	    {
+		    print("Death!!!");
+	    }
+
         if (Time.timeScale != 0)
         {
             // OUYA //

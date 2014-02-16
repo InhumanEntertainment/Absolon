@@ -70,7 +70,7 @@ public class App : MonoBehaviour
 		{
             if(CurrentScreen != null)
             {
-                print("Close");
+                //print("Close");
                 CurrentScreen.Close();
                 LastScreen = CurrentScreen;
             }

@@ -464,5 +464,95 @@ TextureImporter:
         height: 50
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: Player_01
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 217
+        width: 37
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Player_02
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 217
+        width: 37
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Player_03
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 217
+        width: 37
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Player_04
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 217
+        width: 37
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Player_05
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 193
+        width: 37
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Player_06
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 193
+        width: 37
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Player_07
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 193
+        width: 37
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Player_08
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 193
+        width: 37
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: SpriteSheet_55
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 166
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: SpriteSheet_56
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 11
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
   spritePackingTag: 
   userData: 

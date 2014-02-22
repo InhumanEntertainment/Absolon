@@ -1,10 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\Reign\Managers\AdManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Weapons\Projectile.cs">
     <Files>
+      <File FileName="Unity.sln" Line="1" Column="1" />
+      <File FileName="Assets\Weapons\Projectile.cs" Line="20" Column="10" />
       <File FileName="Assets\Screens\GameOverScreen.cs" Line="1" Column="1" />
       <File FileName="Assets\Effects\ColorEffect.cs" Line="1" Column="1" />
-      <File FileName="Assets\Plugins\Reign\Managers\AdManager.cs" Line="19" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

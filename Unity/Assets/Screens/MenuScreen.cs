@@ -57,7 +57,7 @@ public class MenuScreen : GameScreen
 		    Application.OpenURL("market://details?id=" + id);
 
 #elif UNITY_METRO
-        Application.OpenURL("ms-windows-store:PDP?PFN=Absolon_k47tbw9vkrfs6");
+        Application.OpenURL("ms-windows-store:Review?PFN=15090InhumanEntertainment.Absolon_99vjpkr4967s0");
 
 #elif UNITY_IPHONE
         Application.OpenURL("itms-apps://itunes.com/apps/absolon");
